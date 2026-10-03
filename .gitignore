@@ -1,0 +1,9 @@
+data/
+plots/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+data_real/
+data_sample/
+plots_sample/

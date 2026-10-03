@@ -1,0 +1,13 @@
+id,type,question,target,drug,lineage,cancer
+q01,lookup,Which TAD contains EGFR and which genes share it?,EGFR,,,
+q02,lookup,Which genes sit in the same TAD as MYC?,MYC,,,
+q03,lookup,List the genes in the TAD that holds CCND1.,CCND1,,,
+q04,drug,Is the EGFR TAD linked to erlotinib response in lung cancer cell lines?,EGFR,erlotinib,Lung,
+q05,drug,Is the ERBB2 TAD linked to lapatinib response in breast cancer cell lines?,ERBB2,lapatinib,Breast,
+q06,drug,Is the KRAS TAD linked to trametinib response in lung cancer cell lines?,KRAS,trametinib,Lung,
+q07,drug,Does activity of the CCND1 TAD relate to paclitaxel response across all cell lines?,CCND1,paclitaxel,all,
+q08,survival,Does the CCND1 TAD predict overall survival in HNSC?,CCND1,,,HNSC
+q09,survival,Is activity of the EGFR TAD linked to survival in LUAD?,EGFR,,,LUAD
+q10,survival,Does the ERBB2 TAD predict survival in BRCA?,ERBB2,,,BRCA
+q11,crispr,Are the genes in the ERBB2 TAD essential in breast cancer cell lines?,ERBB2,,Breast,
+q12,crispr,Is the MYC TAD essential across all cancer cell lines?,MYC,,all,

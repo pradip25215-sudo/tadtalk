@@ -1,0 +1,14 @@
+langchain
+langgraph
+langchain-anthropic
+python-dotenv
+duckdb
+pandas
+pyarrow
+numpy
+scipy
+statsmodels
+lifelines
+matplotlib
+streamlit
+pytest
