@@ -7,7 +7,8 @@ general questions and out-of-scope requests. Each one is scored on what the agen
                 A gene target also matches when the agent passed that gene's TAD id.
                 A list, e.g. lineage ["Breast", "Lung"], means the tool must be called once for each.
   answer_has    a pattern the answer must contain;  answer_lacks  a pattern it must not contain
-Run:  python -m bench.run_stress
+Run:  python -m bench.run_stress             (asks the LLM)
+      python -m bench.run_stress --rescore   (scores the saved answers again, no LLM call)
 Output: bench/answers_stress.json, bench/scored_stress.csv, bench/results_stress.md
 """
 import json
@@ -19,7 +20,7 @@ from langchain_core.messages import HumanMessage
 
 from agent.agent import build_agent, this_turn, tool_calls
 from config import ROOT
-from tools.common import tad_id_text, tad_of_gene
+from tools.common import official_symbol, tad_id_text, tad_of_gene
 
 BENCH = ROOT / "bench"
 ANALYSIS_TOOLS = {"find_tad", "drug_link", "top_tads_for_drug", "survival", "crispr_link", "top_essential_tads"}
@@ -31,6 +32,8 @@ def value_matches(key, want, got):
     if key.endswith("~"):
         return str(want).lower() in got
     want = str(want).lower()
+    if key in ("target", "gene"):
+        got = official_symbol(got).lower()  # the tools accept common names: HER2 means ERBB2
     if key in ("target", "gene") and got != want:  # the agent may pass the gene's TAD id instead of the gene
         tad = tad_of_gene(want)
         return tad is not None and tad_id_text(got).lower() == tad.lower()
@@ -59,6 +62,8 @@ def check(row, calls, answer):
         for want in variants:
             if not any(call_matches(c, row.expect_tool, want) for c in calls):
                 return False, f"no call {row.expect_tool}({want}); calls were {calls}"
+    if row.kind != "bad input" and re.search(r"not in any TAD|not a gene or TAD id", answer, flags=re.I):
+        return False, "the answer says the gene or TAD was not found"
     if row.answer_has and not re.search(row.answer_has, answer, flags=re.I):
         return False, f"answer does not contain /{row.answer_has}/"
     if row.answer_lacks and re.search(row.answer_lacks, answer, flags=re.I):
@@ -66,16 +71,21 @@ def check(row, calls, answer):
     return True, ""
 
 
-def main(model=None):
+def main(model=None, rescore=False):
     qs = pd.read_csv(BENCH / "stress_questions.csv", dtype=str).fillna("")
-    agent = build_agent(model)
+    saved = json.loads((BENCH / "answers_stress.json").read_text()) if rescore else {}
+    agent = None if rescore else build_agent(model)
     threads, answers, rows = {}, {}, []
     for r in qs.itertuples():
-        # questions with the same 'thread' value share one chat (to test follow-ups); the others get a fresh chat
-        thread_id = threads.setdefault(r.thread, str(uuid.uuid4())) if r.thread else str(uuid.uuid4())
-        out = agent.invoke({"messages": [HumanMessage(r.question)]}, config={"configurable": {"thread_id": thread_id}})
-        calls = tool_calls(this_turn(out["messages"]))
-        answer = out["messages"][-1].text
+        if rescore:  # score the saved answers again: no LLM call, no cost
+            calls = [(name, args) for name, args in saved[r.id]["tools"]]
+            answer = saved[r.id]["answer"]
+        else:
+            # questions with the same 'thread' value share one chat (to test follow-ups); the others get a fresh chat
+            thread_id = threads.setdefault(r.thread, str(uuid.uuid4())) if r.thread else str(uuid.uuid4())
+            out = agent.invoke({"messages": [HumanMessage(r.question)]}, config={"configurable": {"thread_id": thread_id}})
+            calls = tool_calls(this_turn(out["messages"]))
+            answer = out["messages"][-1].text
         passed, reason = check(r, calls, answer)
         answers[r.id] = {"question": r.question, "tools": calls, "answer": answer}
         rows.append({"id": r.id, "kind": r.kind, "correct": passed, "reason": reason})
@@ -97,4 +107,5 @@ def main(model=None):
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(rescore="--rescore" in sys.argv)

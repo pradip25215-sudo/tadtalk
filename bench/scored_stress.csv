@@ -1,7 +1,7 @@
 id,kind,correct,reason
 s01,new wording,True,
-s02,new wording,False,"no call find_tad({'gene': 'ERBB2'}); calls were [('find_tad', {'gene': 'HER2'})]"
-s03,new wording,False,"no call drug_link({'target': 'ERBB2', 'drug': 'lapatinib', 'lineage': 'Breast'}); calls were [('find_tad', {'gene': 'HER2'}), ('drug_link', {'target': 'HER2', 'drug': 'lapatinib', 'lineage': 'Breast'})]"
+s02,new wording,True,
+s03,new wording,True,
 s04,new wording,True,
 s05,new wording,True,
 s06,new wording,True,
