@@ -3,7 +3,7 @@ import uuid
 
 from langchain_core.messages import HumanMessage
 
-from agent.agent import build_agent, this_turn, tool_calls
+from agent.agent import build_agent, reference_check, this_turn, tool_calls
 
 
 def main():
@@ -19,7 +19,13 @@ def main():
         result = agent.invoke({"messages": [HumanMessage(question)]}, config=config)
         for name, args in tool_calls(this_turn(result["messages"])):
             print(f"  [tool] {name}({args})")  # see which tool the LLM chose, with which inputs
-        print(f"\nTADTalk: {result['messages'][-1].text}")
+        answer = result["messages"][-1].text
+        print(f"\nTADTalk: {answer}")
+        verified, unverified = reference_check(answer, result["messages"])
+        if unverified:
+            print(f"  [reference check] NOT returned by PubMed search, verify before use: {unverified}")
+        elif verified:
+            print(f"  [reference check] all {len(verified)} cited PMIDs were returned by PubMed search")
 
 
 if __name__ == "__main__":

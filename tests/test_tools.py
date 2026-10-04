@@ -83,3 +83,35 @@ def test_crispr_link():
     assert "error" not in r, r
     assert 0 <= r["share_essential"] <= 1
     check_result(r)
+
+
+# ---- literature (no internet needed: the NCBI answer is faked)
+def test_pubmed_search(monkeypatch):
+    from tools import literature
+    fake = {"esearch": {"esearchresult": {"idlist": ["22495300"]}},
+            "esummary": {"result": {"uids": ["22495300"], "22495300": {
+                "title": "Topological domains in mammalian genomes.", "source": "Nature", "pubdate": "2012 Apr 11",
+                "authors": [{"name": "Dixon JR"}, {"name": "Selvaraj S"}, {"name": "Yue F"}, {"name": "Kim A"}]}}}}
+    monkeypatch.setattr(literature, "_get", lambda endpoint, **params: fake[endpoint])
+    r = literature.pubmed_search("TAD")
+    assert r["papers"][0]["pmid"] == "22495300" and r["papers"][0]["year"] == "2012"
+    check_result(r)
+
+
+def test_pubmed_search_offline_gives_error(monkeypatch):
+    from tools import literature
+
+    def no_internet(endpoint, **params):
+        raise OSError("no internet")
+    monkeypatch.setattr(literature, "_get", no_internet)
+    assert "error" in literature.pubmed_search("TAD")
+
+
+def test_reference_check():
+    from langchain_core.messages import ToolMessage
+
+    from agent.agent import reference_check
+    found = ToolMessage(content=json.dumps({"papers": [{"pmid": "22495300"}, {"pmid": "26700815"}]}), tool_call_id="1")
+    text = "TADs were described in 2012 (PMID 22495300, 26700815) and later (PMID: 11111111)."
+    verified, unverified = reference_check(text, [found])
+    assert verified == ["22495300", "26700815"] and unverified == ["11111111"]

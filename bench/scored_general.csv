@@ -1,0 +1,36 @@
+id,topic,chosen,key,correct,seconds
+g01,3D genome,A,A,True,2.5
+g02,3D genome,B,B,True,2.0
+g03,3D genome,C,C,True,2.1
+g04,3D genome,D,D,True,2.2
+g05,3D genome,A,A,True,1.8
+g06,3D genome,B,B,True,2.0
+g07,3D genome,C,C,True,5.0
+g08,cancer genes,D,D,True,1.6
+g09,cancer genes,A,A,True,1.4
+g10,cancer genes,B,B,True,1.5
+g11,cancer genes,C,C,True,1.5
+g12,cancer genes,D,D,True,6.2
+g13,cancer genes,A,A,True,1.9
+g14,cancer genes,B,B,True,9.0
+g15,cancer genes,C,C,True,1.4
+g16,drugs,D,D,True,1.6
+g17,drugs,A,A,True,5.9
+g18,drugs,B,B,True,1.5
+g19,drugs,C,C,True,4.8
+g20,drugs,D,D,True,1.9
+g21,drugs,A,A,True,2.2
+g22,drugs,B,B,True,1.5
+g23,data resources,C,C,True,2.1
+g24,data resources,D,D,True,1.9
+g25,data resources,A,A,True,1.7
+g26,data resources,B,B,True,1.6
+g27,data resources,C,C,True,1.4
+g28,methods,D,D,True,1.8
+g29,methods,A,A,True,1.8
+g30,methods,B,B,True,1.6
+g31,methods,C,C,True,1.3
+g32,methods,D,D,True,1.8
+g33,methods,A,A,True,1.4
+g34,methods,B,B,True,1.5
+g35,methods,C,C,True,1.5

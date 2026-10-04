@@ -1,13 +1,31 @@
 id,type,question,target,drug,lineage,cancer
 q01,lookup,Which TAD contains EGFR and which genes share it?,EGFR,,,
-q02,lookup,Which genes sit in the same TAD as MYC?,MYC,,,
+q02,lookup,Which genes sit in the same TAD as ERBB2?,ERBB2,,,
 q03,lookup,List the genes in the TAD that holds CCND1.,CCND1,,,
-q04,drug,Is the EGFR TAD linked to erlotinib response in lung cancer cell lines?,EGFR,erlotinib,Lung,
-q05,drug,Is the ERBB2 TAD linked to lapatinib response in breast cancer cell lines?,ERBB2,lapatinib,Breast,
-q06,drug,Is the KRAS TAD linked to trametinib response in lung cancer cell lines?,KRAS,trametinib,Lung,
-q07,drug,Does activity of the CCND1 TAD relate to paclitaxel response across all cell lines?,CCND1,paclitaxel,all,
-q08,survival,Does the CCND1 TAD predict overall survival in HNSC?,CCND1,,,HNSC
-q09,survival,Is activity of the EGFR TAD linked to survival in LUAD?,EGFR,,,LUAD
-q10,survival,Does the ERBB2 TAD predict survival in BRCA?,ERBB2,,,BRCA
-q11,crispr,Are the genes in the ERBB2 TAD essential in breast cancer cell lines?,ERBB2,,Breast,
-q12,crispr,Is the MYC TAD essential across all cancer cell lines?,MYC,,all,
+q04,lookup,Which genes share a TAD with MYC?,MYC,,,
+q05,lookup,"Which TAD contains KRAS, and what else is in it?",KRAS,,,
+q06,lookup,Which genes are in the same TAD as TP53?,TP53,,,
+q07,lookup,Which TAD holds PIK3CA and which genes share it?,PIK3CA,,,
+q08,lookup,Which genes share a TAD with BRCA1?,BRCA1,,,
+q09,drug,Is the EGFR TAD linked to erlotinib response in lung cancer cell lines?,EGFR,erlotinib,Lung,
+q10,drug,Is the EGFR TAD linked to gefitinib response in lung cancer cell lines?,EGFR,gefitinib,Lung,
+q11,drug,Is the ERBB2 TAD linked to lapatinib response in breast cancer cell lines?,ERBB2,lapatinib,Breast,
+q12,drug,Is the ERBB2 TAD linked to lapatinib response across all cell lines?,ERBB2,lapatinib,all,
+q13,drug,Is the EGFR TAD linked to afatinib response in head and neck cancer cell lines?,EGFR,afatinib,Head and Neck,
+q14,drug,Is the KRAS TAD linked to trametinib response in lung cancer cell lines?,KRAS,trametinib,Lung,
+q15,drug,Does activity of the CCND1 TAD relate to paclitaxel response across all cell lines?,CCND1,paclitaxel,all,
+q16,drug,Is the ERBB2 TAD linked to neratinib response in breast cancer cell lines?,ERBB2,neratinib,Breast,
+q17,survival,Does the CCND1 TAD predict overall survival in HNSC?,CCND1,,,HNSC
+q18,survival,Is activity of the EGFR TAD linked to survival in HNSC?,EGFR,,,HNSC
+q19,survival,Is activity of the EGFR TAD linked to survival in LUAD?,EGFR,,,LUAD
+q20,survival,Does the ERBB2 TAD predict survival in BRCA?,ERBB2,,,BRCA
+q21,survival,Does the MYC TAD predict survival in BRCA?,MYC,,,BRCA
+q22,survival,Is the TP53 TAD linked to survival in LUAD?,TP53,,,LUAD
+q23,survival,Does the KRAS TAD predict survival in LUAD?,KRAS,,,LUAD
+q24,crispr,Are the genes in the ERBB2 TAD essential in breast cancer cell lines?,ERBB2,,Breast,
+q25,crispr,Are the genes in the EGFR TAD essential in lung cancer cell lines?,EGFR,,Lung,
+q26,crispr,Are the genes in the KRAS TAD essential in lung cancer cell lines?,KRAS,,Lung,
+q27,crispr,Is the MYC TAD essential across all cancer cell lines?,MYC,,all,
+q28,crispr,Are the genes in the CCND1 TAD essential in head and neck cancer cell lines?,CCND1,,Head and Neck,
+q29,crispr,Are the genes in the PIK3CA TAD essential in breast cancer cell lines?,PIK3CA,,Breast,
+q30,crispr,Are the genes in the TP53 TAD essential across all cancer cell lines?,TP53,,all,

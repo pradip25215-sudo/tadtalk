@@ -1,0 +1,152 @@
+{
+ "g01": {
+  "answer": "Answer: A\n\nA topologically associating domain (TAD) is a region of the genome where DNA sequences interact with each other much more frequently than with sequences outside the domain, creating a self-contained 3D chromatin structure. This is revealed by chromosome conformation capture techniques like Hi-C, which show that TADs form distinct \"blocks\" of high internal contact frequency separated by boundaries, and they are fundamental units of 3D genome organization that can regulate gene expression and influence disease processes.",
+  "tools": []
+ },
+ "g02": {
+  "answer": "Answer: B\n\nGeneral knowledge: CTCF (CCCTC-binding factor) is the protein most commonly bound at TAD boundaries in mammalian genomes. CTCF, often in conjunction with cohesin complexes, acts as an architectural protein that helps establish and maintain the boundaries of topologically associating domains through loop extrusion mechanisms. This role of CTCF at TAD boundaries is well-established in 3D genome organization and is fundamental to how chromatin is folded into discrete domains.",
+  "tools": []
+ },
+ "g03": {
+  "answer": "Answer: C\n\nCohesin is the protein complex responsible for extruding chromatin loops. This ring-shaped complex, together with the loop extrusion motor protein condensin and regulated by cohesin loaders and unloaders, actively extrudes DNA loops by moving along chromatin. This loop extrusion process is the primary mechanism that generates topologically associating domains (TADs), the large-scale 3D chromatin structures that constrain gene regulation and chromosome organization.",
+  "tools": []
+ },
+ "g04": {
+  "answer": "Answer: D\n\nHi-C (high-throughput chromosome conformation capture) is the genome-wide method that maps 3D chromatin contacts by measuring DNA-DNA interactions across the entire genome. It uses proximity ligation and sequencing to identify which regions of chromatin are in close physical contact in 3D space, making it the standard technique for studying topologically associating domains (TADs) and other chromatin architecture features. RNA-seq measures gene expression, Western blot detects proteins, and Sanger sequencing reads DNA sequences\u2014none of these map 3D chromatin structure.",
+  "tools": []
+ },
+ "g05": {
+  "answer": "Answer: A\n\nIn a Hi-C contact map, a TAD (topologically associating domain) appears as a square of enriched contacts along the diagonal because it represents a genomic region where DNA sequences interact more frequently with each other than with sequences outside the domain. This creates a visible square block on the diagonal of the contact matrix, with stronger signal (brighter color) within the TAD boundaries and weaker signal at the edges where interactions drop off sharply.",
+  "tools": []
+ },
+ "g06": {
+  "answer": "Answer: B\n\nEnhancer hijacking refers to a structural rearrangement (such as a translocation or inversion) that brings an enhancer element into physical proximity with a different gene than it normally regulates, causing aberrant activation of that gene. This is a well-documented mechanism in cancer where enhancers become \"hijacked\" to drive oncogene expression through altered 3D chromatin architecture rather than through mutations in the gene itself.",
+  "tools": []
+ },
+ "g07": {
+  "answer": "Answer: C\n\nIDH-mutant gliomas produce 2-hydroxyglutarate, which inhibits TET enzymes and causes widespread DNA hypermethylation. This hypermethylation at CTCF binding sites reduces CTCF occupancy, weakening the insulation between topologically associating domains and allowing oncogenes in neighbouring domains to become aberrantly activated (PMID 26700815).",
+  "tools": [
+   "pubmed_search",
+   "pubmed_search"
+  ]
+ },
+ "g08": {
+  "answer": "Answer: D\n\nGeneral knowledge: EGFR (Epidermal Growth Factor Receptor) encodes a receptor tyrosine kinase (RTK), a transmembrane protein that binds growth factors like EGF and activates intracellular signaling cascades through autophosphorylation of tyrosine residues. This makes it a cell surface receptor, not a transcription factor, DNA repair enzyme, or cyclin.",
+  "tools": []
+ },
+ "g09": {
+  "answer": "Answer: A\n\nTP53 is a tumour suppressor gene that encodes the p53 protein, a transcription factor that regulates cell cycle arrest, DNA repair, and apoptosis in response to cellular stress. Loss or mutation of TP53 is one of the most common alterations in human cancers, allowing cells to bypass normal growth controls.",
+  "tools": []
+ },
+ "g10": {
+  "answer": "Answer: B\n\nKRAS encodes a small GTPase that acts as an oncogene when mutated. This protein is a key component of cell signaling pathways that control cell growth and division, and activating mutations in KRAS are among the most common oncogenic alterations in human cancers, particularly in pancreatic, colorectal, and lung adenocarcinomas.",
+  "tools": []
+ },
+ "g11": {
+  "answer": "Answer: C\n\nMYC is a transcription factor that acts as an oncogene. It is a proto-oncogene that encodes a basic helix-loop-helix leucine zipper protein, which functions as a transcription factor regulating the expression of numerous genes involved in cell proliferation, differentiation, and apoptosis. MYC is frequently amplified or translocated in various cancers, making it one of the most important oncogenes in human malignancy.",
+  "tools": []
+ },
+ "g12": {
+  "answer": "Answer: D\n\nCyclin D1 (CCND1) drives the G1 to S transition by forming complexes with CDK4 and CDK6, which phosphorylate the retinoblastoma protein (Rb) and promote cell cycle progression (PMID 27695879, 40376755). These CDK4/6-cyclin D1 complexes are well-established therapeutic targets in cancer, as shown by the development of CDK4/6 inhibitors like abemaciclib.",
+  "tools": [
+   "pubmed_search"
+  ]
+ },
+ "g13": {
+  "answer": "Answer: A\n\nGeneral knowledge: ERBB2 (HER2) amplification is a hallmark of HER2-positive breast cancer, which represents approximately 15-20% of breast cancers and is associated with aggressive behavior but also responsiveness to HER2-targeted therapies like trastuzumab (Herceptin). While ERBB2 alterations can occur in other cancers, HER2-positive breast cancer is the major cancer subtype classically defined by ERBB2 amplification and is the primary clinical context where HER2 status is routinely tested and therapeutically targeted.",
+  "tools": []
+ },
+ "g14": {
+  "answer": "Answer: B\n\n11q13 amplification, including CCND1, is a well-established genomic feature of head and neck squamous cell carcinoma (HNSC), as documented in comprehensive genomic characterization studies (PMID 25631445) and recent research showing its role in treatment response (PMID 41159027). While CCND1 amplification occurs in other cancers like breast cancer, it is particularly characteristic and clinically significant in HNSC.",
+  "tools": [
+   "pubmed_search",
+   "pubmed_search"
+  ]
+ },
+ "g15": {
+  "answer": "Answer: C\n\nThe Philadelphia chromosome is the t(9;22) translocation, which results from a reciprocal translocation between chromosomes 9 and 22. This translocation creates the BCR-ABL fusion gene, which is the hallmark genetic abnormality of chronic myeloid leukemia (CML).",
+  "tools": []
+ },
+ "g16": {
+  "answer": "Answer: D\n\nErlotinib is a tyrosine kinase inhibitor that specifically targets the epidermal growth factor receptor (EGFR). It is commonly used to treat EGFR-mutant lung cancers and other EGFR-driven malignancies by blocking the kinase domain of EGFR and preventing downstream signaling.",
+  "tools": []
+ },
+ "g17": {
+  "answer": "Answer: A\n\nLapatinib is a tyrosine kinase inhibitor that targets EGFR (epidermal growth factor receptor) and HER2 (human epidermal growth factor receptor 2), making it particularly useful in HER2-positive breast cancers. The other options represent different drug classes: CDK4/6 inhibitors, BRAF/MEK inhibitors, and immune checkpoint inhibitors, respectively.",
+  "tools": []
+ },
+ "g18": {
+  "answer": "Answer: B\n\nTrastuzumab is a monoclonal antibody that targets HER2 (human epidermal growth factor receptor 2), a receptor tyrosine kinase overexpressed in approximately 20% of breast cancers. It is used clinically to treat HER2-positive breast cancer and has significantly improved outcomes in this patient population.",
+  "tools": []
+ },
+ "g19": {
+  "answer": "Answer: C\n\nThe T790M mutation is the most common cause of acquired resistance to first-generation EGFR tyrosine kinase inhibitors (erlotinib and gefitinib) in lung cancer, occurring in approximately 50% of cases with acquired resistance (PMID 21430269). While L858R and exon 19 deletions are common activating mutations that initially respond to these drugs, T790M emerges during treatment as a secondary mutation that confers resistance by restoring ATP binding to the kinase domain.",
+  "tools": [
+   "pubmed_search"
+  ]
+ },
+ "g20": {
+  "answer": "Answer: D\n\nImatinib (Gleevec) was developed as a tyrosine kinase inhibitor specifically targeting the BCR-ABL fusion protein, which is the hallmark of chronic myeloid leukemia (CML). It was one of the first targeted cancer drugs and revolutionized treatment of CML by blocking the constitutively active kinase produced by the Philadelphia chromosome translocation.",
+  "tools": []
+ },
+ "g21": {
+  "answer": "Answer: A\n\nBRCA1 and BRCA2 are essential proteins in homologous recombination (HR), a high-fidelity DNA repair pathway. When these proteins are mutated, cells lose HR capacity and become dependent on PARP (poly-ADP-ribose polymerase) inhibitors' target, base excision repair (BER), for survival. PARP inhibitors block BER, creating a synthetic lethal interaction: BRCA-mutant cells cannot repair the resulting DNA damage and die, while BRCA-proficient cells can use HR as an alternative repair pathway and survive.",
+  "tools": []
+ },
+ "g22": {
+  "answer": "Answer: B\n\nIn a drug screen, AAC (area above the dose-response curve) measures the area between the dose-response curve and the x-axis. A higher AAC indicates that cells die at lower drug concentrations, meaning the cells are more sensitive to the drug. This metric is used in CTRPv2 and similar screens to quantify drug sensitivity across cell lines.",
+  "tools": []
+ },
+ "g23": {
+  "answer": "Answer: C\n\nTCGA (The Cancer Genome Atlas) is a comprehensive programme that profiled thousands of patient tumours across many cancer types, generating multi-dimensional genomic, epigenomic, transcriptomic and proteomic data. It is one of the largest and most important public cancer genomics resources, providing data that TADTalk uses to analyse survival outcomes in cancers like BRCA (breast), LUAD (lung adenocarcinoma) and HNSC (head and neck squamous cell carcinoma).",
+  "tools": []
+ },
+ "g24": {
+  "answer": "Answer: D\n\nThe DepMap project primarily provides genome-wide CRISPR knockout screens that measure gene dependency (essentiality) across hundreds of cancer cell lines, allowing researchers to identify which genes are required for cancer cell survival and growth. This is the data source used by TADTalk's `crispr_link` function to test whether genes in a TAD are essential in specific cancer lineages.",
+  "tools": []
+ },
+ "g25": {
+  "answer": "Answer: A\n\nA CRISPR gene effect (Chronos) score close to -1 indicates that knocking out the gene severely impairs cell growth, similar to knocking out a typical essential gene. The Chronos score ranges from 0 (no effect on growth) to -1 (strong negative effect on growth), so a score near -1 means the gene is essential for cell viability and proliferation.",
+  "tools": []
+ },
+ "g26": {
+  "answer": "Answer: B\n\nBED (Browser Extensible Data) files use 0-based coordinates where the start position is 0-based and inclusive, but the end position is 1-based and exclusive (not included). This is the standard format for genomic coordinate files and allows for seamless representation of adjacent features without overlap.",
+  "tools": []
+ },
+ "g27": {
+  "answer": "Answer: C\n\nhg19 and hg38 are two versions of the human reference genome assembly. hg19 (GRCh37) was released in 2009, while hg38 (GRCh38) was released in 2013 and is the current standard reference genome used in most modern genomics research.",
+  "tools": []
+ },
+ "g28": {
+  "answer": "Answer: D\n\nGSVA (Gene Set Variation Analysis) calculates an enrichment score for each gene set in each sample, measuring how much the genes in a predefined set are coordinately up- or down-regulated compared to other genes in that sample. It converts a gene expression matrix into a gene set enrichment matrix, allowing researchers to assess pathway activity or biological process activation on a per-sample basis.",
+  "tools": []
+ },
+ "g29": {
+  "answer": "Answer: A\n\nIn survival analysis, a censored patient is one whose event status (typically death or disease recurrence) is unknown at the end of follow-up because the study ended, they were lost to follow-up, or they were still alive when data collection stopped. Censoring means we know they survived at least until that point, but we don't know what happened after. Options B, C, and D describe exclusion criteria or data quality issues, not censoring.",
+  "tools": []
+ },
+ "g30": {
+  "answer": "Answer: B\n\nA Cox hazard ratio of 1.5 means the instantaneous risk of the event (death) increases by 50% for each one-unit increase in the variable, compared to the baseline. This is a relative measure of risk at any given time, not an absolute survival time, proportion of deaths, or p-value.",
+  "tools": []
+ },
+ "g31": {
+  "answer": "Answer: C\n\nSpearman correlation is a non-parametric measure that computes the correlation between the **ranks** of two variables rather than their raw values. This makes it robust to outliers and non-linear monotonic relationships, unlike Pearson correlation which assumes a linear relationship between raw values.",
+  "tools": []
+ },
+ "g32": {
+  "answer": "Answer: D\n\nThe Benjamini-Hochberg procedure is a method for controlling the false discovery rate (FDR), which is the expected proportion of false positives among all rejected hypotheses. Unlike the family-wise error rate (FWER) controlled by methods like Bonferroni correction, the FDR allows a small proportion of false discoveries while maintaining statistical rigor, making it more powerful for multiple testing scenarios common in genomics.",
+  "tools": []
+ },
+ "g33": {
+  "answer": "Answer: A\n\nThe neighbouring genes control for the confounding effect of genomic proximity and co-regulation that occurs naturally in the genome, independent of TAD structure. This makes neighbouring genes a more stringent baseline than random genes scattered across the genome, which would not account for local chromatin effects and co-amplification that occur simply because genes are physically close to each other.",
+  "tools": []
+ },
+ "g34": {
+  "answer": "Answer: B\n\nWith 200 null sets, the smallest possible empirical p-value occurs when only 1 null set is at least as extreme as the observed result: (1 + 1) / (1 + 200) = 2/201 \u2248 0.01, which is closest to 0.005. This formula ensures that even with the most extreme result, the p-value cannot be zero.",
+  "tools": []
+ },
+ "g35": {
+  "answer": "Answer: C\n\nA Kaplan-Meier curve is a statistical plot that estimates the probability of surviving beyond each time point in a cohort of patients. It accounts for censoring (patients lost to follow-up or still alive at study end) and shows cumulative survival over time, making it the standard method for visualizing overall survival in clinical studies.",
+  "tools": []
+ }
+}

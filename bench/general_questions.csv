@@ -1,0 +1,36 @@
+id,topic,question,A,B,C,D,answer
+g01,3D genome,What is a topologically associating domain (TAD)?,A region whose DNA contacts itself much more often than it contacts neighbouring regions,A stretch of DNA that codes for one protein,A cluster of ribosomal RNA genes,A chromosome band seen under the microscope,A
+g02,3D genome,Which protein is most often bound at TAD boundaries in mammalian genomes?,TP53,CTCF,MYC,Histone H1,B
+g03,3D genome,Which protein complex extrudes chromatin loops and so helps to form TADs?,The proteasome,The ribosome,Cohesin,The spliceosome,C
+g04,3D genome,Which method maps 3D chromatin contacts across the whole genome?,RNA-seq,Western blot,Sanger sequencing,Hi-C,D
+g05,3D genome,"In a Hi-C contact map, how does a TAD appear?",As a square of enriched contacts along the diagonal,As a single bright dot far from the diagonal,As an empty stripe,As a uniform background,A
+g06,3D genome,What does 'enhancer hijacking' mean in cancer?,A virus inserts its own enhancer into every chromosome,A structural change brings an enhancer close to a gene it does not normally regulate,An enhancer is deleted so its gene is switched off,An enhancer is translated into a protein,B
+g07,3D genome,How do IDH-mutant gliomas weaken insulation between neighbouring domains?,By deleting the cohesin genes,By amplifying CTCF,"By DNA hypermethylation at CTCF sites, which reduces CTCF binding",By removing all histones,C
+g08,cancer genes,What kind of protein does EGFR encode?,A transcription factor,A DNA repair enzyme,A cyclin,A receptor tyrosine kinase,D
+g09,cancer genes,TP53 is best described as:,A tumour suppressor gene,A ribosomal gene,An oncogenic kinase,A histone gene,A
+g10,cancer genes,KRAS encodes:,A nuclear hormone receptor,A small GTPase that acts as an oncogene when mutated,A DNA methyltransferase,A cell-surface integrin,B
+g11,cancer genes,MYC is:,A tumour suppressor phosphatase,A structural protein of the nuclear lamina,A transcription factor that acts as an oncogene,A receptor tyrosine kinase,C
+g12,cancer genes,CCND1 encodes cyclin D1. With which kinases does it drive the G1 to S transition?,CDK1 only,Aurora kinases,PI3K,CDK4 and CDK6,D
+g13,cancer genes,ERBB2 (HER2) amplification defines a major subtype of which cancer?,Breast cancer,Chronic myeloid leukaemia,Retinoblastoma,Wilms tumour,A
+g14,cancer genes,"Amplification of 11q13, which includes CCND1, is common in which cancer?",Chronic myeloid leukaemia,Head and neck squamous cell carcinoma,Retinoblastoma,Hairy cell leukaemia,B
+g15,cancer genes,The Philadelphia chromosome is which translocation?,t(8;14),t(14;18),t(9;22),t(15;17),C
+g16,drugs,What is the main target of erlotinib?,BCR-ABL,VEGF,PARP,EGFR,D
+g17,drugs,Lapatinib inhibits which targets?,EGFR and HER2,CDK4 and CDK6,BRAF and MEK,PD-1 and PD-L1,A
+g18,drugs,Trastuzumab is an antibody against:,EGFR,HER2,CD20,VEGF,B
+g19,drugs,Which EGFR mutation is the most common cause of acquired resistance to erlotinib and gefitinib in lung cancer?,L858R,Exon 19 deletion,T790M,G719S,C
+g20,drugs,Imatinib was developed to inhibit:,HER2,EGFR,BRAF V600E,BCR-ABL,D
+g21,drugs,Why are BRCA1 or BRCA2 mutant tumours sensitive to PARP inhibitors?,Synthetic lethality: they already lack homologous recombination repair,PARP inhibitors block the oestrogen receptor,PARP inhibitors stop microtubules,BRCA mutations raise drug uptake,A
+g22,drugs,"In a drug screen summarised as AAC (area above the dose-response curve), a higher AAC means:",The drug was tested at fewer doses,The cells are more sensitive to the drug,The cells are more resistant to the drug,The drug is more toxic to normal tissue,B
+g23,data resources,What is TCGA?,A database of protein structures,A genome browser,A programme that profiled thousands of patient tumours across many cancer types,A collection of mouse models,C
+g24,data resources,What does the DepMap project mainly provide?,Patient survival records,Protein crystal structures,Hi-C maps of normal tissue,Genome-wide gene dependency (CRISPR) data in cancer cell lines,D
+g25,data resources,A CRISPR gene effect (Chronos) score close to -1 for a gene in a cell line means:,Knocking it out harms growth about as much as knocking out a common essential gene,The gene is not expressed,The gene is amplified,Knocking it out makes the cells grow faster,A
+g26,data resources,How are coordinates written in a BED file?,"1-based, both ends included","0-based start, end not included",In centimorgans,As cytoband names only,B
+g27,data resources,hg19 and hg38 are:,Two cancer cell lines,Two sequencing machines,Two versions of the human reference genome,Two gene families,C
+g28,methods,What does GSVA calculate?,The mutation rate of each gene,The copy number of each chromosome arm,The 3D distance between two genes,An enrichment score for each gene set in each sample,D
+g29,methods,"In survival analysis, a censored patient is one who:",Had not had the event when follow-up ended,Was removed for bad data quality,Died before the study started,Received no treatment,A
+g30,methods,A Cox hazard ratio of 1.5 per unit of a variable means:,Survival time is 1.5 years longer,The risk of the event is 50% higher for each one-unit increase,50% of patients die,The p-value is 0.5,B
+g31,methods,Spearman correlation is computed on:,Raw values assuming a straight line,Only the largest values,The ranks of the values,Log-transformed counts only,C
+g32,methods,The Benjamini-Hochberg procedure controls:,The family-wise error rate,The sample size,The effect size,The false discovery rate,D
+g33,methods,"Why compare a TAD with blocks of neighbouring genes, and not only with random genes?","Neighbouring genes are often co-amplified or co-regulated even without a TAD, so they are a stricter control",Random genes cannot be scored,Neighbouring genes are never expressed,It makes every result significant,A
+g34,methods,"An empirical p-value is computed as (1 + number of null sets at least as extreme) / (1 + number of null sets). With 200 null sets, the smallest possible value is about:",0,0.005,0.05,0.5,B
+g35,methods,A Kaplan-Meier curve shows:,Gene expression over time,The dose-response of a drug,The estimated probability of surviving beyond each time point,The number of mutations per patient,C

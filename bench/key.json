@@ -1,0 +1,569 @@
+{
+ "q01": {
+  "gene": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "size_kb": 1575,
+  "n_genes": 13,
+  "genes": [
+   "SEC61G",
+   "EGFR",
+   "LANCL2",
+   "VOPP1",
+   "ZNF713",
+   "NIPSNAP2",
+   "MRPS17",
+   "PSPH",
+   "CCT6A",
+   "SUMF2",
+   "PHKG1",
+   "CHCHD2",
+   "NUPR2"
+  ],
+  "other_tads": [
+   "chr7:53375000-56700000",
+   "chr7:51500000-57100000"
+  ]
+ },
+ "q02": {
+  "gene": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "size_kb": 210,
+  "n_genes": 9,
+  "genes": [
+   "NEUROD2",
+   "PPP1R1B",
+   "STARD3",
+   "TCAP",
+   "PNMT",
+   "ERBB2",
+   "PGAP3",
+   "MIEN1",
+   "GRB7"
+  ]
+ },
+ "q03": {
+  "gene": "CCND1",
+  "tad_id": "chr11:69450000-70125000",
+  "size_kb": 675,
+  "n_genes": 7,
+  "genes": [
+   "CCND1",
+   "FGF19",
+   "FGF4",
+   "FGF3",
+   "ANO1",
+   "FADD",
+   "PPFIA1"
+  ]
+ },
+ "q04": {
+  "gene": "MYC",
+  "tad_id": "chr8:127775000-131725000",
+  "size_kb": 3950,
+  "n_genes": 4,
+  "genes": [
+   "POU5F1B",
+   "MYC",
+   "GSDMC",
+   "ASAP1"
+  ]
+ },
+ "q05": {
+  "gene": "KRAS",
+  "tad_id": "chr12:25350000-26210000",
+  "size_kb": 860,
+  "n_genes": 3,
+  "genes": [
+   "KRAS",
+   "LMNTD1",
+   "RASSF8"
+  ],
+  "other_tads": [
+   "chr12:25320000-26200000"
+  ]
+ },
+ "q06": {
+  "gene": "TP53",
+  "tad_id": "chr17:7520000-7600000",
+  "size_kb": 80,
+  "n_genes": 5,
+  "genes": [
+   "SHBG",
+   "SAT2",
+   "ATP1B2",
+   "WRAP53",
+   "TP53"
+  ],
+  "other_tads": [
+   "chr17:7490000-7590000"
+  ]
+ },
+ "q07": {
+  "gene": "PIK3CA",
+  "tad_id": "chr3:178730000-179040000",
+  "size_kb": 310,
+  "n_genes": 3,
+  "genes": [
+   "ZMAT3",
+   "PIK3CA",
+   "KCNMB3"
+  ],
+  "other_tads": [
+   "chr3:178730000-179060000",
+   "chr3:178720000-179330000",
+   "chr3:178125000-179300000"
+  ]
+ },
+ "q08": {
+  "gene": "BRCA1",
+  "tad_id": "chr17:41170000-41400000",
+  "size_kb": 230,
+  "n_genes": 5,
+  "genes": [
+   "VAT1",
+   "RND2",
+   "BRCA1",
+   "NBR1",
+   "TMEM106A"
+  ],
+  "other_tads": [
+   "chr17:40990000-41400000",
+   "chr17:40100000-41825000"
+  ]
+ },
+ "q09": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "n_genes_in_tad": 13,
+  "drug": "erlotinib",
+  "lineage": "Lung",
+  "n_cell_lines": 126,
+  "rho_tad": 0.053,
+  "p_tad": 0.559,
+  "rho_gene": 0.42,
+  "p_gene": 9.83e-07,
+  "p_random": 0.801,
+  "p_block": 0.75,
+  "n_null_sets": 399,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr7_54800000-56375000_erlotinib_Lung.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q10": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "n_genes_in_tad": 13,
+  "drug": "gefitinib",
+  "lineage": "Lung",
+  "n_cell_lines": 114,
+  "rho_tad": 0.229,
+  "p_tad": 0.0144,
+  "rho_gene": 0.288,
+  "p_gene": 0.00192,
+  "p_random": 0.0249,
+  "p_block": 0.04,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr7_54800000-56375000_gefitinib_Lung.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q11": {
+  "target": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "n_genes_in_tad": 9,
+  "drug": "lapatinib",
+  "lineage": "Breast",
+  "n_cell_lines": 33,
+  "rho_tad": 0.575,
+  "p_tad": 0.000467,
+  "rho_gene": 0.331,
+  "p_gene": 0.0603,
+  "p_random": 0.005,
+  "p_block": 0.005,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr17_37700000-37910000_lapatinib_Breast.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q12": {
+  "target": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "n_genes_in_tad": 9,
+  "drug": "lapatinib",
+  "lineage": "all",
+  "n_cell_lines": 698,
+  "rho_tad": 0.232,
+  "p_tad": 5.18e-10,
+  "rho_gene": 0.142,
+  "p_gene": 0.000163,
+  "p_random": 0.0498,
+  "p_block": 0.045,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr17_37700000-37910000_lapatinib_all.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q13": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "n_genes_in_tad": 13,
+  "drug": "afatinib",
+  "lineage": "Head and Neck",
+  "n_cell_lines": 27,
+  "rho_tad": -0.029,
+  "p_tad": 0.885,
+  "rho_gene": 0.156,
+  "p_gene": 0.436,
+  "p_random": 0.8458,
+  "p_block": 0.92,
+  "n_null_sets": 399,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr7_54800000-56375000_afatinib_Head_and_Neck.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q14": {
+  "target": "KRAS",
+  "tad_id": "chr12:25350000-26210000",
+  "n_genes_in_tad": 3,
+  "drug": "trametinib",
+  "lineage": "Lung",
+  "n_cell_lines": 55,
+  "rho_tad": 0.086,
+  "p_tad": 0.534,
+  "rho_gene": -0.225,
+  "p_gene": 0.0983,
+  "p_random": 0.7938,
+  "p_block": 0.7744,
+  "n_null_sets": 387,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr12_25350000-26210000_trametinib_Lung.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q15": {
+  "target": "CCND1",
+  "tad_id": "chr11:69450000-70125000",
+  "n_genes_in_tad": 7,
+  "drug": "paclitaxel",
+  "lineage": "all",
+  "n_cell_lines": 573,
+  "rho_tad": -0.3,
+  "p_tad": 2.04e-13,
+  "rho_gene": -0.329,
+  "p_gene": 6.3e-16,
+  "p_random": 0.0697,
+  "p_block": 0.025,
+  "n_null_sets": 399,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr11_69450000-70125000_paclitaxel_all.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q16": {
+  "target": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "n_genes_in_tad": 9,
+  "drug": "neratinib",
+  "lineage": "Breast",
+  "n_cell_lines": 38,
+  "rho_tad": 0.573,
+  "p_tad": 0.000172,
+  "rho_gene": 0.471,
+  "p_gene": 0.00287,
+  "p_random": 0.01,
+  "p_block": 0.005,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/drug_chr17_37700000-37910000_neratinib_Breast.png",
+  "note": "Cell-line result: a hypothesis, not treatment advice."
+ },
+ "q17": {
+  "target": "CCND1",
+  "tad_id": "chr11:69450000-70125000",
+  "cancer": "HNSC",
+  "n_patients": 501,
+  "deaths": 217,
+  "hr_per_sd": 1.266,
+  "hr_ci95": [
+   1.106,
+   1.447
+  ],
+  "p_cox": 0.000591,
+  "p_logrank": 0.00234,
+  "p_random": 0.01,
+  "p_block": 0.005,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr11_69450000-70125000_HNSC.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q18": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "cancer": "HNSC",
+  "n_patients": 501,
+  "deaths": 217,
+  "hr_per_sd": 1.241,
+  "hr_ci95": [
+   1.092,
+   1.41
+  ],
+  "p_cox": 0.000929,
+  "p_logrank": 0.0452,
+  "p_random": 0.0249,
+  "p_block": 0.035,
+  "n_null_sets": 399,
+  "verdict": "PASS",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr7_54800000-56375000_HNSC.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q19": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "cancer": "LUAD",
+  "n_patients": 503,
+  "deaths": 182,
+  "hr_per_sd": 1.28,
+  "hr_ci95": [
+   1.104,
+   1.484
+  ],
+  "p_cox": 0.0011,
+  "p_logrank": 0.00688,
+  "p_random": 0.0547,
+  "p_block": 0.025,
+  "n_null_sets": 399,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr7_54800000-56375000_LUAD.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q20": {
+  "target": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "cancer": "BRCA",
+  "n_patients": 1080,
+  "deaths": 151,
+  "hr_per_sd": 1.058,
+  "hr_ci95": [
+   0.903,
+   1.239
+  ],
+  "p_cox": 0.486,
+  "p_logrank": 0.481,
+  "p_random": 0.6468,
+  "p_block": 0.58,
+  "n_null_sets": 399,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr17_37700000-37910000_BRCA.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q21": {
+  "target": "MYC",
+  "tad_id": "chr8:127775000-131725000",
+  "cancer": "BRCA",
+  "n_patients": 1080,
+  "deaths": 151,
+  "hr_per_sd": 1.128,
+  "hr_ci95": [
+   0.964,
+   1.32
+  ],
+  "p_cox": 0.134,
+  "p_logrank": 0.173,
+  "p_random": 0.1966,
+  "p_block": 0.1868,
+  "n_null_sets": 358,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr8_127775000-131725000_BRCA.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q22": {
+  "target": "TP53",
+  "tad_id": "chr17:7520000-7600000",
+  "cancer": "LUAD",
+  "n_patients": 503,
+  "deaths": 182,
+  "hr_per_sd": 0.919,
+  "hr_ci95": [
+   0.793,
+   1.066
+  ],
+  "p_cox": 0.265,
+  "p_logrank": 0.44,
+  "p_random": 0.4944,
+  "p_block": 0.467,
+  "n_null_sets": 358,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/survival_chr17_7520000-7600000_LUAD.png",
+  "note": "HR > 1: higher TAD activity goes with shorter survival. Association, not causation."
+ },
+ "q23": {
+  "error": "No TCGA data for cancer 'LUAD'.",
+  "valid_cancers": [
+   "BRCA",
+   "HNSC",
+   "LUAD"
+  ]
+ },
+ "q24": {
+  "target": "ERBB2",
+  "tad_id": "chr17:37700000-37910000",
+  "lineage": "Breast",
+  "n_cell_lines": 53,
+  "gene_effects": {
+   "ERBB2": -0.67,
+   "MIEN1": -0.339,
+   "STARD3": -0.249,
+   "NEUROD2": -0.23,
+   "PGAP3": -0.214,
+   "PPP1R1B": -0.211,
+   "TCAP": -0.184,
+   "PNMT": -0.154,
+   "GRB7": -0.077
+  },
+  "tad_mean_effect": -0.259,
+  "share_essential": 0.111,
+  "p_vs_other_genes": 0.000648,
+  "p_random": 0.1841,
+  "p_block": 0.2563,
+  "n_null_sets": 398,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr17_37700000-37910000_Breast.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q25": {
+  "target": "EGFR",
+  "tad_id": "chr7:54800000-56375000",
+  "lineage": "Lung",
+  "n_cell_lines": 126,
+  "gene_effects": {
+   "CCT6A": -1.328,
+   "SEC61G": -0.895,
+   "CHCHD2": -0.591,
+   "VOPP1": -0.332,
+   "MRPS17": -0.252,
+   "NUPR2": -0.232,
+   "EGFR": -0.227,
+   "PHKG1": -0.195,
+   "PSPH": -0.146,
+   "SUMF2": -0.009,
+   "ZNF713": 0.045,
+   "NIPSNAP2": 0.045,
+   "LANCL2": 0.071
+  },
+  "tad_mean_effect": -0.311,
+  "share_essential": 0.231,
+  "p_vs_other_genes": 0.0155,
+  "p_random": 0.1045,
+  "p_block": 0.1393,
+  "n_null_sets": 400,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr7_54800000-56375000_Lung.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q26": {
+  "target": "KRAS",
+  "tad_id": "chr12:25350000-26210000",
+  "lineage": "Lung",
+  "n_cell_lines": 126,
+  "gene_effects": {
+   "KRAS": -0.882,
+   "RASSF8": -0.043,
+   "LMNTD1": -0.015
+  },
+  "tad_mean_effect": -0.313,
+  "share_essential": 0.333,
+  "p_vs_other_genes": 0.232,
+  "p_random": 0.199,
+  "p_block": 0.1393,
+  "n_null_sets": 400,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr12_25350000-26210000_Lung.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q27": {
+  "target": "MYC",
+  "tad_id": "chr8:127775000-131725000",
+  "lineage": "all",
+  "n_cell_lines": 1208,
+  "gene_effects": {
+   "MYC": -1.987,
+   "POU5F1B": -0.061,
+   "GSDMC": -0.041,
+   "ASAP1": 0.125
+  },
+  "tad_mean_effect": -0.491,
+  "share_essential": 0.25,
+  "p_vs_other_genes": 0.42,
+  "p_random": 0.0647,
+  "p_block": 0.0796,
+  "n_null_sets": 400,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr8_127775000-131725000_all.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q28": {
+  "target": "CCND1",
+  "tad_id": "chr11:69450000-70125000",
+  "lineage": "Head and Neck",
+  "n_cell_lines": 77,
+  "gene_effects": {
+   "CCND1": -1.415,
+   "FADD": -0.377,
+   "FGF19": -0.138,
+   "ANO1": -0.093,
+   "PPFIA1": -0.073,
+   "FGF4": -0.008,
+   "FGF3": 0.001
+  },
+  "tad_mean_effect": -0.3,
+  "share_essential": 0.143,
+  "p_vs_other_genes": 0.072,
+  "p_random": 0.1393,
+  "p_block": 0.2362,
+  "n_null_sets": 398,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr11_69450000-70125000_Head_and_Neck.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q29": {
+  "target": "PIK3CA",
+  "tad_id": "chr3:178730000-179040000",
+  "lineage": "Breast",
+  "n_cell_lines": 53,
+  "gene_effects": {
+   "PIK3CA": -0.723,
+   "KCNMB3": 0.088,
+   "ZMAT3": 0.102
+  },
+  "tad_mean_effect": -0.178,
+  "share_essential": 0.333,
+  "p_vs_other_genes": 0.777,
+  "p_random": 0.3383,
+  "p_block": 0.2388,
+  "n_null_sets": 400,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr3_178730000-179040000_Breast.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ },
+ "q30": {
+  "target": "TP53",
+  "tad_id": "chr17:7520000-7600000",
+  "lineage": "all",
+  "n_cell_lines": 1208,
+  "gene_effects": {
+   "WRAP53": -0.194,
+   "ATP1B2": -0.094,
+   "SHBG": -0.075,
+   "SAT2": -0.042,
+   "TP53": 0.424
+  },
+  "tad_mean_effect": 0.004,
+  "share_essential": 0.0,
+  "p_vs_other_genes": 0.438,
+  "p_random": 0.8657,
+  "p_block": 0.7662,
+  "n_null_sets": 400,
+  "verdict": "FAIL",
+  "plot": "/home/pradip/tadtalk/plots/crispr_chr17_7520000-7600000_all.png",
+  "note": "Cell-line result: shows dependency, not a drug target by itself."
+ }
+}
