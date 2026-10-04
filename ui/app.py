@@ -37,7 +37,7 @@ STYLE = """
 html, body, p, li, h1, h2, h3, label, textarea, input, .stMarkdown, div[data-testid="stButton"] button p,
 .tt-head, .tt-facts, .tt-strip { font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif; }
 code { font-family: 'IBM Plex Mono', Consolas, monospace; }
-.block-container { padding-top: 2.2rem; max-width: 860px; }
+.block-container { padding-top: 4.5rem; max-width: 860px; }
 .tt-head { display: flex; gap: 20px; align-items: center; margin-bottom: 4px; }
 .tt-head h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; margin: 0; padding: 0; color: #0F1F3D; }
 .tt-head p { margin: 4px 0 0 0; color: #46536B; font-size: 1.02rem; line-height: 1.45; max-width: 34rem; }
