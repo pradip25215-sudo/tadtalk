@@ -17,8 +17,10 @@ BINS = [(3, 5, "3-5"), (6, 10, "6-10"), (11, 20, "11-20"), (21, 40, "21-40"), (4
 # Every Parquet file in data/ becomes a SQL table named after the file:
 # data/tad_genes.parquet -> table tad_genes, data/models.parquet -> table models, ...
 _con = duckdb.connect()
+_TABLES = set()
 for _f in sorted(DATA.glob("*.parquet")):
     _con.execute(f"CREATE VIEW {_f.stem} AS SELECT * FROM read_parquet('{_f.as_posix()}')")
+    _TABLES.add(_f.stem)
 
 
 def q(sql, params=None):
@@ -34,6 +36,24 @@ def size_bin(n_genes):
     return None
 
 
+def tad_id_text(text):
+    """Accept both 'chr7:55000000-55500000' and the lab style 'chr7_55000000_55500000'."""
+    t = text.strip()
+    if t.lower().startswith("chr") and t.count("_") >= 2 and ":" not in t:
+        chrom, start, end = t.rsplit("_", 2)
+        return f"{chrom}:{start}-{end}"
+    return t
+
+
+def tad_of_gene(gene):
+    """The TAD id used for a gene: the smallest TAD around it with at least 3 genes. None if the gene has no TAD."""
+    if "gene_tad" in _TABLES:
+        rows = q("SELECT tad_id FROM gene_tad WHERE upper(gene) = upper(?)", [gene.strip()])
+    else:  # older data folder without gene_tad: every gene sits in exactly one TAD
+        rows = q("SELECT DISTINCT tad_id FROM tad_genes WHERE upper(gene) = upper(?)", [gene.strip()])
+    return None if rows.empty else rows["tad_id"].iloc[0]
+
+
 def resolve_target(target):
     """Turn a gene symbol or a TAD id into its TAD.
 
@@ -41,20 +61,14 @@ def resolve_target(target):
     info = tad_id, genes, gene (the gene asked about, or None), size_bin.
     """
     t = target.strip()
-    rows = q(
-        """SELECT tad_id, gene FROM tad_genes
-           WHERE tad_id IN (SELECT tad_id FROM tad_genes
-                            WHERE upper(gene) = upper(?) OR upper(tad_id) = upper(?))
-           ORDER BY gene_start""",
-        [t, t],
-    )
+    tad_id = tad_of_gene(t) or tad_id_text(t)
+    rows = q("SELECT tad_id, gene FROM tad_genes WHERE upper(tad_id) = upper(?) ORDER BY gene_start", [tad_id])
     if rows.empty:
         return None, {"error": f"'{target}' is not a gene or TAD id in this TAD set."}
-    first = rows.iloc[0]
     genes = rows["gene"].tolist()
     asked_gene = next((g for g in genes if g.upper() == t.upper()), None)
     return {
-        "tad_id": first["tad_id"],
+        "tad_id": rows["tad_id"].iloc[0],
         "genes": genes,
         "gene": asked_gene,
         "size_bin": size_bin(len(genes)),

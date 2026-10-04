@@ -6,7 +6,7 @@ from matplotlib.colors import LogNorm
 from matplotlib.patches import Rectangle
 
 from config import DATA
-from tools.common import q, save_plot
+from tools.common import q, resolve_target, save_plot
 
 HIC_FILE = DATA / "hic.mcool"  # copy your lab's Hi-C file here, under this name
 
@@ -18,11 +18,10 @@ def hic_view(target: str, resolution: int = 25000, flank_kb: int = 500) -> dict:
     flank_kb: how much to show on each side of the TAD. Dark squares on the diagonal = TADs.
     Returns the region shown and the path of the heatmap image.
     """
-    t = q("""SELECT DISTINCT tad_id, chrom, tad_start, tad_end FROM tad_genes
-             WHERE upper(gene) = upper(?) OR upper(tad_id) = upper(?)""", [target.strip()] * 2)
-    if t.empty:
-        return {"error": f"'{target}' is not a gene or TAD id in this TAD set."}
-    t = t.iloc[0]
+    tad, err = resolve_target(target)
+    if err:
+        return err
+    t = q("SELECT DISTINCT tad_id, chrom, tad_start, tad_end FROM tad_genes WHERE tad_id = ?", [tad["tad_id"]]).iloc[0]
     try:
         clr = cooler.Cooler(f"{HIC_FILE}::resolutions/{resolution}")
     except Exception:

@@ -47,7 +47,7 @@ with st.sidebar:
     st.header("TADTalk")
     st.write("Cancer questions at the level of 3D chromatin domains (TADs).")
     st.markdown("**Data:** TCGA (survival), DepMap CRISPR, CTRPv2 drug screens, "
-                "TAD calls from HNSCC Hi-C. **StatGuard** checks every result against "
+                "the lab's non-redundant union TAD set (hg19). **StatGuard** checks every result against "
                 "random gene sets and neighbour blocks of the same size.")
     st.warning("Research use only. Cell-line results are hypotheses, not treatment advice.")
     if st.button("New chat"):

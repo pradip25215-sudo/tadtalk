@@ -13,10 +13,10 @@ from tools.common import BINS, size_bin
 N_NULL = 200                     # null sets per kind and per size bin
 rng = np.random.default_rng(42)  # fixed seed: the same sets every time you run it
 
-tg = pd.read_parquet(DATA / "tad_genes.parquet").drop_duplicates("gene")
-tg = tg.sort_values(["chrom", "gene_start"])
-tads = tg.groupby("tad_id")["gene"].apply(list)
+tg = pd.read_parquet(DATA / "tad_genes.parquet").sort_values(["chrom", "gene_start"])
+tads = tg.groupby("tad_id")["gene"].apply(list)  # nested TADs: one gene can be in several TADs
 tads = tads[tads.str.len() >= 3]  # a TAD needs at least 3 genes for a GSVA score
+tg = tg.drop_duplicates("gene")  # every gene once, in genome order: the pool for the null sets
 
 rows = []
 for tad_id, genes in tads.items():

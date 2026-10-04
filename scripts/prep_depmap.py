@@ -1,6 +1,7 @@
 """Turn DepMap downloads into clean tables.
 
-Inputs in data/raw/:  Model.csv, CRISPRGeneEffect.csv, OmicsExpressionProteinCodingGenesTPMLogp1.csv
+Inputs in data/raw/:  Model.csv, CRISPRGeneEffect.csv and the protein-coding expression file
+                      (OmicsExpressionProteinCodingGenesTPMLogp1.csv or OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv)
 Outputs:  data/models.parquet     model_id, name, lineage
           data/crispr.parquet     model_id, gene, effect   (long format)
           data/ccle_expr.parquet  model_id, gene, expr     (long format)
@@ -12,7 +13,9 @@ import pandas as pd
 
 from config import DATA, RAW
 
-EXPR_FILE = RAW / "OmicsExpressionProteinCodingGenesTPMLogp1.csv"  # change if your release names it differently
+# The expression file is named differently in different DepMap releases; take the one that is there.
+EXPR_NAMES = ["OmicsExpressionProteinCodingGenesTPMLogp1.csv", "OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv"]
+EXPR_FILE = next((RAW / n for n in EXPR_NAMES if (RAW / n).exists()), RAW / EXPR_NAMES[0])
 
 
 def read_depmap_matrix(path):

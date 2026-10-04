@@ -7,3 +7,7 @@ __pycache__/
 data_real/
 data_sample/
 plots_sample/
+data_sample/
+plots_sample/
+*.log
+real_results.txt
