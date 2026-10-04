@@ -112,6 +112,10 @@ def benchmark_lines():
     if general.exists():
         g = pd.read_csv(general)
         lines.append(f"TADTalk: {int(g['correct'].sum())} of {len(g)} general questions")
+    stress = ROOT / "bench" / "scored_stress.csv"
+    if stress.exists():
+        t = pd.read_csv(stress)
+        lines.append(f"TADTalk: {int(t['correct'].sum())} of {len(t)} hard questions (new wording, typos, bad inputs)")
     return lines
 
 

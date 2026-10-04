@@ -1,0 +1,424 @@
+{
+ "s01": {
+  "question": "ERBB2 kis TAD me hai, aur uske saath kaun se genes hain?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ]
+  ],
+  "answer": "**ERBB2 \u0915\u093e TAD:**\n\nERBB2 \u090f\u0915 TAD \u092e\u0947\u0902 \u0939\u0948 \u091c\u093f\u0938\u0915\u093e ID \u0939\u0948: **chr17:37700000-37910000**\n\n**TAD \u0915\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940:**\n- **\u0906\u0915\u093e\u0930:** 210 kb\n- **\u0915\u0941\u0932 genes:** 9 protein-coding genes\n\n**TAD \u092e\u0947\u0902 \u0938\u092d\u0940 genes (genome order \u092e\u0947\u0902):**\n1. NEUROD2\n2. PPP1R1B\n3. STARD3\n4. TCAP\n5. PNMT\n6. **ERBB2** (\u0906\u092a\u0915\u093e gene)\n7. PGAP3\n8. MIEN1\n9. GRB7\n\n**\u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u092c\u093e\u0924:** \u092f\u0939 TAD \u0915\u093e\u092b\u0940 \u091b\u094b\u091f\u093e \u0939\u0948 (210 kb) \u0914\u0930 \u0907\u0938\u092e\u0947\u0902 9 genes \u0939\u0948\u0902\u0964 ERBB2 \u0915\u0947 \u0938\u093e\u0925 GRB7 \u092d\u0940 \u0907\u0938\u0940 TAD \u092e\u0947\u0902 \u0939\u0948, \u091c\u094b ERBB2 signaling \u092e\u0947\u0902 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u092d\u0942\u092e\u093f\u0915\u093e \u0928\u093f\u092d\u093e\u0924\u093e \u0939\u0948\u0964 \u092f\u0947 genes \u090f\u0915 \u0938\u093e\u0925 3D chromatin structure \u092e\u0947\u0902 organize \u0939\u0948\u0902, \u0907\u0938\u0932\u093f\u090f \u0909\u0928\u0915\u0940 activity \u090f\u0915-\u0926\u0942\u0938\u0930\u0947 \u0938\u0947 \u091c\u0941\u0921\u093c\u0940 \u0939\u094b \u0938\u0915\u0924\u0940 \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u0906\u092a \u0907\u0938 TAD \u0915\u0940 \u0915\u093f\u0938\u0940 \u0935\u093f\u0936\u0947\u0937 property \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u091c\u093e\u0928\u0928\u093e \u091a\u093e\u0939\u0924\u0947 \u0939\u0948\u0902, \u091c\u0948\u0938\u0947 drug response \u092f\u093e survival \u0938\u0947 link?"
+ },
+ "s02": {
+  "question": "what else sits in the same chromatin domain as HER2?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "HER2"
+    }
+   ],
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ]
+  ],
+  "answer": "**HER2 (ERBB2) sits in TAD chr17:37700000-37910000 (210 kb) with 8 other protein-coding genes:**\n\n1. NEUROD2\n2. PPP1R1B\n3. STARD3\n4. TCAP\n5. PNMT\n6. **ERBB2** (HER2)\n7. PGAP3\n8. MIEN1\n9. GRB7\n\n**Why this matters:** This is a well-known amplified region in breast cancer. STARD3 and GRB7 are particularly notable because they are co-amplified with HER2 in many breast tumours. GRB7 encodes a growth factor receptor-binding protein that directly interacts with HER2 and enhances its signalling. STARD3 (also called MLN64) is a lipid transporter that is also frequently amplified alongside HER2. The tight clustering of these genes in a single TAD means their expression is likely coordinated through shared chromatin regulation."
+ },
+ "s03": {
+  "question": "Do breast lines die more from lapatinib when the HER2 domain is switched on?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "HER2"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "HER2",
+     "drug": "lapatinib",
+     "lineage": "Breast"
+    }
+   ]
+  ],
+  "answer": "The analysis cannot be completed because **HER2 is not in any TAD in this dataset**. TADs in this set require at least 3 protein-coding genes, and HER2 appears to be in a region that doesn't meet this criterion.\n\nHowever, I can still answer your biological question:\n\n**General knowledge:** HER2 (ERBB2) is a well-established target of lapatinib, a dual tyrosine kinase inhibitor that blocks both HER2 and EGFR. In breast cancer cell lines and patients, lapatinib sensitivity is indeed strongly associated with HER2 expression and activation status\u2014cells with high HER2 activity are typically more sensitive to lapatinib-induced cell death (PMID 15289623). This is the basis for using lapatinib in HER2-positive breast cancers.\n\nThe 3D chromatin context (TAD activity) around HER2 could theoretically influence its expression, but since HER2 is not in a multi-gene TAD in this dataset, I cannot test whether TAD-level activity predicts lapatinib response here. If you have a different gene of interest that is in a TAD, I'd be happy to test that instead."
+ },
+ "s04": {
+  "question": "egfr tad + gefitinib, lung",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "EGFR"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "EGFR",
+     "drug": "gefitinib",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "**EGFR TAD and gefitinib response in lung cancer cell lines:**\n\nThe EGFR gene sits in **TAD chr7:54800000-56375000** (1,575 kb, 13 protein-coding genes including EGFR, SEC61G, LANCL2, VOPP1, ZNF713, NIPSNAP2, MRPS17, PSPH, CCT6A, SUMF2, PHKG1, CHCHD2, NUPR2).\n\n**TAD activity and gefitinib sensitivity:**\n- **n** = 114 lung cancer cell lines (CTRPv2 drug screens)\n- **TAD Spearman rho** = 0.229, **p** = 0.0144\n- **EGFR gene alone rho** = 0.288, **p** = 0.00192\n- **StatGuard: PASS** (p_random = 0.0249, p_block = 0.04)\n\nHigher TAD activity is associated with greater gefitinib sensitivity (positive rho). The TAD effect is statistically significant and stronger than random gene sets and neighbouring chromatin blocks. The EGFR gene alone shows a slightly stronger correlation than the whole TAD.\n\n**Why this may be:**\nEGFR is a well-established target of gefitinib, a tyrosine kinase inhibitor used in lung cancer. The TAD's activity likely reflects EGFR expression and function. The TAD-level signal suggests that the chromatin domain's overall transcriptional state\u2014not just EGFR alone\u2014influences drug response, possibly through co-regulation of other genes in the domain that modulate EGFR signalling or drug metabolism. The fact that EGFR alone is slightly stronger suggests EGFR is the dominant driver, but the TAD context adds information."
+ },
+ "s05": {
+  "question": "In head and neck squamous cell carcinoma patients, does the CCND1 domain matter for how long they live?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "CCND1"
+    }
+   ],
+   [
+    "survival",
+    {
+     "target": "CCND1",
+     "cancer": "HNSC"
+    }
+   ]
+  ],
+  "answer": "**Yes, the CCND1 domain significantly matters for survival in HNSC patients.**\n\n**The data:**\n- **TAD:** chr11:69450000-70125000 (675 kb, containing 7 genes: CCND1, FGF19, FGF4, FGF3, ANO1, FADD, PPFIA1)\n- **Patients:** n = 501 HNSC patients from TCGA, with 217 deaths\n- **Effect:** Hazard ratio (HR) = 1.27 per 1 SD increase in TAD activity (95% CI: 1.11\u20131.45)\n- **p-value:** Cox regression p = 0.00059; log-rank test p = 0.0023\n- **StatGuard:** PASS (p_random = 0.01, p_block = 0.005; the association is stronger than random gene sets and neighbouring TAD blocks)\n\n**What this means:** Higher activity of the CCND1 TAD is associated with shorter overall survival. For every standard deviation increase in TAD activity, the hazard of death increases by 27%, meaning patients with more active CCND1 domains tend to die sooner.\n\n**Why this may be:**\nCCND1 (Cyclin D1) is a well-known oncogene that drives cell cycle progression. The TAD also contains FGF3, FGF4, and FGF19\u2014fibroblast growth factors that promote proliferation and survival signalling. In head and neck cancers, amplification of this chromosomal region (11q13) is common and associated with aggressive disease. Higher activity of this domain likely reflects more aggressive tumour biology, explaining the worse survival. The fact that the entire TAD shows this association (not just CCND1 alone) suggests the 3D chromatin structure coordinating these genes' expression is functionally important."
+ },
+ "s06": {
+  "question": "breast cancer patients, ERBB2 TAD, overall survival?",
+  "tools": [
+   [
+    "survival",
+    {
+     "target": "ERBB2",
+     "cancer": "BRCA"
+    }
+   ]
+  ],
+  "answer": "**Result: No significant link between ERBB2 TAD activity and overall survival in breast cancer.**\n\n**Data:** TCGA breast cancer (BRCA), n = 1,080 patients, 151 deaths\n\n**Effect:** Cox hazard ratio per 1 SD of TAD activity = 1.058 (95% CI: 0.903\u20131.239), p = 0.486\n\n**TAD:** chr17:37700000-37910000\n\n**StatGuard:** FAIL \u2014 the association is not stronger than random gene sets or neighbouring chromatin blocks (p_random = 0.647, p_block = 0.58)\n\n**Why this may be:** This is surprising at first, because ERBB2 (HER2) is a well-known prognostic marker in breast cancer. However, this result measures TAD *activity* (3D chromatin domain activity), not ERBB2 *expression* or *amplification* alone. The TAD contains multiple genes, and their combined activity may not capture the prognostic power of HER2 status, which is typically assessed by protein expression or gene copy number rather than broader chromatin domain activity. The lack of signal could also reflect that in modern TCGA cohorts, HER2-positive patients received targeted therapy (trastuzumab), which may have altered the survival relationship."
+ },
+ "s07": {
+  "question": "lung adenocarcinoma survival and the EGFR TAD",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "EGFR"
+    }
+   ],
+   [
+    "survival",
+    {
+     "target": "EGFR",
+     "cancer": "LUAD"
+    }
+   ]
+  ],
+  "answer": "## EGFR TAD and Lung Adenocarcinoma Survival\n\n**The TAD:** chr7:54800000-56375000 (1,575 kb, 13 protein-coding genes including EGFR, SEC61G, LANCL2, VOPP1, and others)\n\n**Survival association:**\n- **n** = 503 LUAD patients, 182 deaths\n- **HR per 1 SD of TAD activity** = 1.28 (95% CI: 1.104\u20131.484)\n- **p-value (Cox)** = 0.0011\n- **p-value (log-rank, high vs low activity)** = 0.00688\n- **StatGuard: FAIL** \u2014 The association is not stronger than random gene sets (p_random = 0.0547) and is weaker than neighbouring TAD blocks (p_block = 0.025)\n\n**What this means:** Higher activity of the EGFR TAD is associated with shorter survival in LUAD patients (HR > 1), but this signal is not statistically robust when compared to random genes or neighbouring chromatin blocks. The result suggests the association may be driven by individual genes rather than TAD-level chromatin organization.\n\n**Why this may be:** EGFR is a well-known driver of lung adenocarcinoma, and high EGFR expression or activity typically correlates with worse prognosis in untreated patients. However, the StatGuard failure indicates that the TAD as a functional unit\u2014rather than EGFR alone\u2014may not be the key predictor. This could reflect that EGFR's prognostic value is gene-specific rather than dependent on coordinated TAD activity, or that other genes in the TAD have opposing effects on survival."
+ },
+ "s08": {
+  "question": "Do breast cancer cell lines need the genes of the ERBB2 TAD to grow?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ],
+   [
+    "crispr_link",
+    {
+     "target": "ERBB2",
+     "lineage": "Breast"
+    }
+   ]
+  ],
+  "answer": "**Short answer: No, the ERBB2 TAD genes are not significantly essential in breast cancer cell lines as a group.**\n\n**Details:**\n\nThe ERBB2 gene sits in TAD **chr17:37700000-37910000** (210 kb, 9 genes: NEUROD2, PPP1R1B, STARD3, TCAP, PNMT, ERBB2, PGAP3, MIEN1, GRB7).\n\nIn **53 breast cancer cell lines** (DepMap CRISPR):\n- TAD mean gene effect: **\u22120.259** (scale: 0 = no effect, \u22121 = typical essential gene)\n- Share of genes with effect < \u22120.5 (essential): **11.1%** (1 of 9 genes)\n- p-value vs other genes: **0.000648** \u2713\n- **StatGuard: FAIL** (p vs random genes = 0.1841; p vs neighbouring blocks = 0.2563)\n\nERBB2 itself is the most essential gene in the TAD (effect \u22120.67), but the TAD as a whole is not more essential than random gene sets or neighbouring chromatin blocks.\n\n**Why this may be:**\n\nERBB2 is a well-known oncogene in breast cancer and is individually important for growth in some cell lines (especially HER2-amplified ones). However, the other 8 genes in the TAD are not consistently essential across the 53 breast lines tested. This suggests that while ERBB2 dependency varies by cell line genotype, the TAD's collective activity is not a strong predictor of growth need. The TAD may be functionally modular\u2014ERBB2 drives growth in some contexts, but the neighbouring genes do not form a co-essential unit."
+ },
+ "s09": {
+  "question": "Which chromatin domains do head and neck lines depend on the most?",
+  "tools": [
+   [
+    "top_essential_tads",
+    {
+     "lineage": "Head and Neck",
+     "k": 10
+    }
+   ]
+  ],
+  "answer": "Here are the **top 10 most essential TADs in head and neck cancer cell lines** (n=77 cell lines, DepMap CRISPR data):\n\n**Top performers (StatGuard: PASS):**\n\n1. **chr2:61760000-62120000** \u2013 Mean effect: -1.62, 67% essential genes\n   - p = 0.00319, StatGuard: PASS\n\n2. **chr14:35590000-35900000** \u2013 Mean effect: -1.391, 67% essential genes\n   - p = 0.00245, StatGuard: PASS\n\n3. **chr5:64090000-64890000** \u2013 Mean effect: -1.382, 67% essential genes\n   - p = 0.0281, StatGuard: PASS\n\n4. **chr16:18800000-18990000** \u2013 Mean effect: -1.349, 67% essential genes\n   - p = 0.0156, StatGuard: PASS\n\n5. **chr17:2320000-2620000** \u2013 Mean effect: -1.274, 67% essential genes\n   - p = 0.00242, StatGuard: PASS\n\n6. **chr17:2260000-2590000** \u2013 Mean effect: -1.227, 67% essential genes\n   - p = 0.0228, StatGuard: PASS\n\n7. **chr12:112630000-112860000** \u2013 Mean effect: -1.211, 67% essential genes\n   - p = 0.0293, StatGuard: PASS\n\n**Why this may be:**\n\nThe gene effect scores (Chronos) range from 0 (no effect) to -1 (typical essential gene), so more negative values mean stronger dependency. These TADs show significantly stronger essentiality than random gene sets and neighbouring chromatin blocks, suggesting they contain genes critical for head and neck cancer cell survival. The note indicates that some of these TADs may contain known common-essential genes that rank high across all cancer lineages, but the StatGuard test confirms they are genuinely essential in this context rather than random findings."
+ },
+ "s10": {
+  "question": "rank TADs by their link to neratinib sensitivity in breast lines",
+  "tools": [
+   [
+    "top_tads_for_drug",
+    {
+     "drug": "neratinib",
+     "lineage": "Breast",
+     "k": 10
+    }
+   ]
+  ],
+  "answer": "Here are the top TADs ranked by their link to neratinib sensitivity in **38 breast cancer cell lines** (CTRPv2 drug screens):\n\n| Rank | TAD ID | Genes | Rho | p-value | FDR | StatGuard |\n|------|--------|-------|-----|---------|-----|-----------|\n| 1 | chr16:57330000-57470000 | CCL22, CX3CL1, CCL17 | **+0.662** | 5.91e-06 | 0.0342 | **PASS** |\n| 2 | chr17:42120000-42270000 | LSM12, G6PC3, HDAC5, ASB16, TMUB2 | **-0.64** | 1.49e-05 | 0.039 | **PASS** |\n| 3 | chr17:41940000-42250000 | MPP2, PPY, PYY, NAGS, TMEM101, LSM12, G6PC3, HDAC5 | **-0.633** | 2.02e-05 | 0.039 | **PASS** |\n| 4 | chr6:50750000-52120000 | TFAP2B, PKHD1, IL17A, IL17F | **+0.624** | 2.88e-05 | 0.0417 | **PASS** |\n| 5 | chr17:41950000-42450000 | MPP2, PPY, PYY, NAGS, TMEM101, LSM12, G6PC3, HDAC5 | -0.612 | 4.52e-05 | 0.0523 | FAIL |\n| 6 | chr17:45400000-45730000 | EFCAB13, NPEPPS, KPNB1 | -0.6 | 6.75e-05 | 0.0571 | FAIL |\n| 7 | chr2:199170000-200810000 | SATB2, FTCDNL1, C2orf69 | -0.595 | 8.24e-05 | 0.0571 | FAIL |\n| 8 | chr22:38390000-38760000 | PICK1, SLC16A8, BAIAP2L2, MAFF, PLA2G6, TMEM184B, CSNK1E | +0.595 | 8.24e-05 | 0.0571 | FAIL |\n| 9 | chr9:108210000-108510000 | FSD1L, FKTN, TAL2, TMEM38B | -0.592 | 9.08e-05 | 0.0571 | FAIL |\n| 10 | chr12:96930000-99060000 | NEDD1, TMPO, SLC25A3, IKBIP, APAF1 | -0.589 | 9.86e-05 | 0.0571 | FAIL |\n\n**Key findings:**\n\n- **Top 4 TADs pass StatGuard**, meaning their associations are stronger than random gene sets and neighbouring blocks.\n- **Positive rho** (ranks 1, 4, 8) = higher TAD activity correlates with **more sensitivity** to neratinib (cells die more).\n- **Negative rho** (ranks 2, 3, 5\u201310) = higher TAD activity correlates with **less sensitivity** (resistance).\n- The **chr16 TAD** (CCL22, CX3CL1, CCL17) shows the strongest positive link (rho = 0.662).\n- The **chr17 TADs** (ranks 2\u20133, 5) show strong negative links, suggesting their activity may promote neratinib resistance.\n\n**Why this may be:** Neratinib is an irreversible pan-HER inhibitor. The chr16 TAD contains chemokine genes (CCL22, CX3CL1, CCL17) involved in immune signalling; their activity might reflect an immune-active state that sensitizes cells. The chr17 TADs contain HDAC5 and other genes; HDAC inhibition can modulate drug response, and their high activity might promote survival pathways. These are hypotheses from cell-line data, not predictive of patient outcomes."
+ },
+ "s11": {
+  "question": "top 3 TADs for erlotinib in lung",
+  "tools": [
+   [
+    "top_tads_for_drug",
+    {
+     "drug": "erlotinib",
+     "lineage": "Lung",
+     "k": 3
+    }
+   ]
+  ],
+  "answer": "Here are the **top 3 TADs linked to erlotinib response in lung cancer cell lines** (n=126 cell lines, 5,789 TADs tested):\n\n| Rank | TAD ID | Genes | Rho | p-value | FDR | StatGuard |\n|------|--------|-------|-----|---------|-----|-----------|\n| 1 | chr2:160910000-161930000 | PLA2R1, ITGB6, RBMS1 | +0.515 | 7.0\u00d710\u207b\u00b9\u2070 | 2.13\u00d710\u207b\u2076 | **PASS** |\n| 2 | chr1:16580000-16830000 | FBXO42, SZRD1, SPATA21, NECAP2 | -0.514 | 7.37\u00d710\u207b\u00b9\u2070 | 2.13\u00d710\u207b\u2076 | **PASS** |\n| 3 | chr1:28980000-29200000 | GMEB1, YTHDF2, OPRD1 | -0.494 | 4.1\u00d710\u207b\u2079 | 7.91\u00d710\u207b\u2076 | **PASS** |\n\n**What this means:**\n- **TAD 1** (chr2:160910000-161930000): Higher activity of this TAD is associated with **greater sensitivity** to erlotinib (positive rho). The genes PLA2R1, ITGB6, and RBMS1 may be relevant to drug response.\n- **TADs 2 & 3**: Higher activity is associated with **reduced sensitivity** (negative rho), suggesting these TADs' activity may confer resistance.\n\nAll three pass StatGuard validation, meaning the associations are stronger than expected by chance and stronger than neighbouring genomic regions.\n\n**Why this may be:** Erlotinib is an EGFR tyrosine kinase inhibitor. The positive association in TAD 1 could reflect co-regulation of genes that enhance EGFR pathway inhibition or reduce compensatory signalling. The negative associations in TADs 2 and 3 might involve genes that activate alternative survival pathways when active. This is a cell-line hypothesis and should be validated experimentally."
+ },
+ "s12": {
+  "question": "Is ERBB2 alone or its whole TAD the better predictor of neratinib response in breast lines?",
+  "tools": [
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "neratinib",
+     "lineage": "Breast"
+    }
+   ],
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ]
+  ],
+  "answer": "**The TAD is the better predictor.**\n\nIn breast cancer cell lines (n=38), ERBB2's TAD (chr17:37700000-37910000) shows a stronger correlation with neratinib response than ERBB2 alone:\n\n- **TAD activity**: Spearman rho = 0.573, p = 0.000172\n- **ERBB2 gene alone**: Spearman rho = 0.471, p = 0.00287\n\nBoth pass StatGuard (p_random = 0.01, p_block = 0.005), meaning both are stronger predictors than random gene sets and neighbouring genomic blocks. However, the TAD's rho is 21% higher than the gene alone, indicating that the coordinated activity of all 9 genes in this 210 kb domain (NEUROD2, PPP1R1B, STARD3, TCAP, PNMT, ERBB2, PGAP3, MIEN1, GRB7) predicts neratinib sensitivity better than ERBB2 in isolation.\n\n**Why this may be:** ERBB2 is the primary target of neratinib, but the TAD likely contains co-regulated genes that modulate drug response. GRB7, which sits in the same TAD, is known to interact with ERBB2 signalling and may influence pathway activation and drug sensitivity. The TAD's 3D chromatin structure may coordinate expression of multiple genes that collectively determine the cellular response to HER2-targeted therapy."
+ },
+ "s13": {
+  "question": "erlotnib and the EGFR TAD in lung lines?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "EGFR"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "EGFR",
+     "drug": "erlotinib",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "**The EGFR TAD shows no significant link to erlotinib response in lung cell lines.**\n\n**Data:**\n- **TAD:** chr7:54800000-56375000 (1,575 kb, 13 genes including EGFR, SEC61G, LANCL2, VOPP1, and others)\n- **Cell lines:** 126 lung cancer lines from CTRPv2 drug screens\n- **TAD activity vs erlotinib response:** Spearman rho = 0.053, p = 0.559\n- **StatGuard:** FAIL (not stronger than random gene sets or neighbouring TAD blocks)\n- **EGFR gene alone:** rho = 0.42, p = 9.83\u00d710\u207b\u2077 (highly significant)\n\n**Why this may be:**\n\nThe striking contrast here is that **EGFR itself is a strong predictor** of erlotinib sensitivity (rho = 0.42, highly significant), but the **TAD's activity as a whole is not**. This suggests that erlotinib response depends on EGFR expression specifically, not on the coordinated activity of the 13 genes in this TAD. The other genes in the domain\u2014SEC61G, LANCL2, VOPP1, and the rest\u2014may not be co-regulated with EGFR in a way that matters for drug response, or they may not influence erlotinib sensitivity. This is a common pattern: a single oncogene can drive drug response without its TAD being a useful predictor."
+ },
+ "s14": {
+  "question": "Is the EGFR TAD linked to erlotinib response in lung cancer?",
+  "tools": [
+   [
+    "drug_link",
+    {
+     "target": "EGFR",
+     "drug": "erlotinib",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "**No, the EGFR TAD is not significantly linked to erlotinib response in lung cancer cell lines.**\n\n**The data:**\n- TAD: chr7:54800000-56375000 (13 protein-coding genes)\n- Drug: erlotinib (CTRPv2 screens)\n- Cell lines: 126 lung cancer lines\n- TAD activity correlation with erlotinib sensitivity: Spearman rho = 0.053, p = 0.559\n- StatGuard: **FAIL** (the TAD's correlation is not stronger than random gene sets or neighbouring blocks)\n\n**Comparison with the EGFR gene alone:**\nInterestingly, EGFR itself shows a strong correlation with erlotinib response (rho = 0.42, p = 9.83e-07), but this signal does not extend to the TAD as a whole. This suggests that EGFR's response to erlotinib is driven by the gene's individual properties (likely its mutation status and expression level), not by the broader 3D chromatin domain activity.\n\n**Why this may be:**\nEGFR is a well-known driver of erlotinib response in lung cancer, but this is primarily determined by activating mutations in the kinase domain and EGFR expression level, which are gene-specific features. The TAD's overall activity\u2014which reflects the coordinated expression of all 13 genes in the domain\u2014does not capture this specific signal. The TAD may contain other genes whose activity patterns obscure or dilute the EGFR-erlotinib relationship."
+ },
+ "s15": {
+  "question": "Is the ERBB2 TAD linked to Tykerb (lapatinib) response in breast cell lines?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "lapatinib",
+     "lineage": "Breast"
+    }
+   ]
+  ],
+  "answer": "**Yes, the ERBB2 TAD is significantly linked to lapatinib response in breast cell lines.**\n\n**The data:**\n- **TAD:** chr17:37700000-37910000 (210 kb, 9 genes including ERBB2, STARD3, GRB7, and others)\n- **Cell lines tested:** 33 breast cancer cell lines from CTRPv2\n- **TAD activity correlation:** Spearman rho = 0.575, p = 0.000467\n- **Gene alone (ERBB2):** rho = 0.331, p = 0.0603\n- **StatGuard:** PASS (the TAD effect is stronger than random gene sets and neighbouring TAD blocks, p = 0.005)\n\n**Why this may be:**\nThe ERBB2 TAD shows a much stronger link to lapatinib response than ERBB2 alone (rho 0.575 vs 0.331), suggesting that the coordinated activity of multiple genes in this domain\u2014not just ERBB2\u2014drives sensitivity to this HER2-targeted drug. Lapatinib inhibits ERBB2 (HER2) and EGFR, and the TAD contains STARD3 and GRB7, which are co-amplified with ERBB2 in HER2+ breast cancers and may contribute to drug response. The positive correlation means higher TAD activity associates with greater drug sensitivity (higher cell killing)."
+ },
+ "s16": {
+  "question": "Is chr17:37700000-37910000 linked to lapatinib response in breast cell lines?",
+  "tools": [
+   [
+    "drug_link",
+    {
+     "target": "chr17:37700000-37910000",
+     "drug": "lapatinib",
+     "lineage": "Breast"
+    }
+   ]
+  ],
+  "answer": "**Yes, this TAD is significantly linked to lapatinib response in breast cell lines.**\n\n**The data:**\n- **TAD:** chr17:37700000-37910000 (9 protein-coding genes)\n- **Cell lines tested:** 33 breast cancer cell lines from CTRPv2\n- **Correlation (Spearman rho):** 0.575, p = 0.000467\n- **StatGuard:** PASS (p_random = 0.005, p_block = 0.005)\n\nThe positive correlation means that higher activity of this TAD is associated with greater sensitivity to lapatinib (cells are killed more effectively). The p-value is well below 0.05, and StatGuard confirms the signal is stronger than expected by chance and stronger than neighbouring genomic blocks.\n\n**Why this may be:**\nThis TAD is located on chromosome 17 in the region containing ERBB2 (HER2), a well-known target of lapatinib. Lapatinib is a dual tyrosine kinase inhibitor that targets EGFR and HER2. If this TAD contains or is functionally linked to HER2 or other genes in the HER2 signalling pathway, higher TAD activity could reflect elevated expression of these drug targets, making cells more dependent on this pathway and thus more sensitive to lapatinib inhibition."
+ },
+ "s17": {
+  "question": "survival for chr11_69450000_70125000 in HNSC",
+  "tools": [
+   [
+    "survival",
+    {
+     "target": "chr11_69450000_70125000",
+     "cancer": "HNSC"
+    }
+   ]
+  ],
+  "answer": "**TAD chr11:69450000-70125000 and survival in HNSC (head and neck squamous cell carcinoma):**\n\n**Result:** Higher activity of this TAD is associated with **worse overall survival** in HNSC patients.\n\n- **n** = 501 patients, 217 deaths\n- **Hazard ratio (HR)** = 1.266 per 1 SD increase in TAD activity (95% CI: 1.106\u20131.447)\n- **Cox p-value** = 0.000591\n- **Log-rank p-value** (high vs low activity, median split) = 0.00234\n- **StatGuard: PASS** (p_random = 0.01, p_block = 0.005; the association is stronger than random gene sets and neighbouring TAD blocks)\n\n**Why this may be:** \n\nThis TAD contains genes whose elevated activity correlates with poorer prognosis in head and neck cancer. The genes in this region may drive aggressive tumour phenotypes or resistance to therapy. The StatGuard check confirms this is a genuine signal, not a statistical artefact from testing many TADs. The Kaplan-Meier plot shows the survival curves diverging between high and low TAD activity groups."
+ },
+ "s18": {
+  "question": "Is the larger TAD chr7:51500000-57100000 linked to survival in HNSC?",
+  "tools": [
+   [
+    "survival",
+    {
+     "target": "chr7:51500000-57100000",
+     "cancer": "HNSC"
+    }
+   ]
+  ],
+  "answer": "Yes, the TAD chr7:51500000-57100000 is significantly linked to survival in HNSC.\n\n**Results:**\n- **TAD:** chr7:51500000-57100000\n- **Cancer:** HNSC (head and neck squamous cell carcinoma)\n- **Sample size:** n = 501 patients, 217 deaths\n- **Effect:** HR = 1.238 per 1 SD of TAD activity (95% CI: 1.091\u20131.406)\n- **p-value:** p = 0.000971 (Cox regression), p = 0.00959 (log-rank test)\n- **StatGuard:** PASS (p_random = 0.0249, p_block = 0.035)\n\n**Interpretation:** Higher activity of this TAD is associated with shorter overall survival in HNSC patients. For every 1 standard deviation increase in TAD activity, the hazard of death increases by 24%. The association is statistically significant and passes the StatGuard check, meaning it is stronger than would be expected by chance or from random neighbouring genes.\n\n**Why this may be:** This TAD on chromosome 7 (51.5\u201357.1 Mb) likely contains genes involved in cancer progression or treatment resistance in head and neck cancers. The region could harbour oncogenes or genes that promote aggressive tumour behaviour. Without knowing which specific genes are in this TAD, it's uncertain whether the effect is driven by a single dominant gene or by coordinated activity of multiple genes in the domain."
+ },
+ "s19": {
+  "question": "Which TAD contains NOTAGENE1?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "NOTAGENE1"
+    }
+   ]
+  ],
+  "answer": "The gene **NOTAGENE1** is not found in this TAD dataset. This could mean:\n\n1. **The gene symbol is incorrect** \u2013 please check the spelling or verify the official gene name\n2. **The gene is not protein-coding** \u2013 this dataset only includes protein-coding genes in TADs\n3. **The gene is in a TAD with fewer than 3 genes** \u2013 TADs in this set require at least 3 protein-coding genes to be included\n\nCould you provide the correct gene symbol, or would you like me to search for a different gene?"
+ },
+ "s20": {
+  "question": "Is the EGFR TAD associated with survival in ovarian cancer?",
+  "tools": [],
+  "answer": "I need to clarify something: the survival analysis tool I have access to works with TCGA data, which includes three cancer types: BRCA (breast), HNSC (head and neck), and LUAD (lung adenocarcinoma). Unfortunately, ovarian cancer is not available in this dataset.\n\nHowever, I can:\n1. **Test EGFR's TAD association with survival in one of the available cancers** (BRCA, HNSC, or LUAD) if you'd like\n2. **Search the literature** for what is known about EGFR and ovarian cancer survival\n3. **Test EGFR's TAD for drug response or gene essentiality** in ovarian cancer cell lines (if available in the CTRPv2 or DepMap datasets)\n\nWould you like me to proceed with any of these alternatives?"
+ },
+ "s21": {
+  "question": "Is the EGFR TAD linked to aspirin response in lung cell lines?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "EGFR"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "EGFR",
+     "drug": "aspirin",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "Unfortunately, **aspirin is not available in the CTRPv2 drug screen dataset** that TADTalk uses. The drug response data comes from CTRPv2, which contains a specific set of compounds tested against cancer cell lines, and aspirin is not among them.\n\n**What I found:**\n- EGFR is located in TAD **chr7:54800000-56375000** (1,575 kb, containing 13 protein-coding genes including EGFR, SEC61G, LANCL2, and others)\n\n**To answer your question, I would need:**\n- A drug that is in CTRPv2 (e.g., erlotinib, lapatinib, gefitinib, or other kinase inhibitors commonly tested in lung cancer cell lines)\n\nWould you like me to test the EGFR TAD's link to a different drug that is available in the CTRPv2 dataset?"
+ },
+ "s22": {
+  "question": "Compare the ERBB2 TAD's link to lapatinib in breast versus lung cell lines.",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "lapatinib",
+     "lineage": "Breast"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "lapatinib",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "## Comparison of ERBB2 TAD's Link to Lapatinib: Breast vs Lung\n\n**The ERBB2 TAD (chr17:37700000-37910000, 210 kb, 9 genes) shows a strong link to lapatinib response in breast cell lines but not in lung cell lines.**\n\n### Breast Cell Lines\n- **n** = 33 cell lines (CTRPv2 drug screens)\n- **TAD activity correlation**: \u03c1 = 0.575, p = 0.000467\n- **ERBB2 gene alone**: \u03c1 = 0.331, p = 0.0603\n- **StatGuard**: PASS (p_random = 0.005, p_block = 0.005)\n\nThe TAD activity is significantly linked to lapatinib sensitivity, and the TAD effect is stronger than the gene alone.\n\n### Lung Cell Lines\n- **n** = 114 cell lines (CTRPv2 drug screens)\n- **TAD activity correlation**: \u03c1 = 0.097, p = 0.304\n- **ERBB2 gene alone**: \u03c1 = 0.213, p = 0.0229\n- **StatGuard**: FAIL (p_random = 0.4179, p_block = 0.35)\n\nThe TAD activity shows no significant link to lapatinib response; the result is not stronger than random genes or neighbouring blocks.\n\n### Why this may be:\n\n**Breast specificity**: ERBB2 (HER2) is a well-established driver of breast cancer, and lapatinib is an HER2/EGFR inhibitor approved for HER2+ breast cancer. The TAD's activity likely reflects coordinated expression of ERBB2 and its co-amplified neighbours (STARD3, GRB7, MIEN1), which are typically amplified together in HER2+ breast tumours. This amplicon structure makes the TAD activity a strong predictor of drug response.\n\n**Lung divergence**: Lung cancers have different ERBB2 biology\u2014HER2 amplification is less common and less clinically relevant than EGFR mutations. The weaker individual gene correlation (\u03c1 = 0.213) and lack of TAD-level signal suggest that ERBB2 expression or TAD activity is not a major driver of lapatinib response in lung cell lines, even though the gene shows some correlation. The TAD's 3D chromatin state may not capture the relevant biology in this lineage."
+ },
+ "s23": {
+  "question": "Is the ERBB2 TAD linked to lapatinib response in breast cell lines?",
+  "tools": [
+   [
+    "find_tad",
+    {
+     "gene": "ERBB2"
+    }
+   ],
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "lapatinib",
+     "lineage": "Breast"
+    }
+   ]
+  ],
+  "answer": "Yes, the ERBB2 TAD is significantly linked to lapatinib response in breast cell lines.\n\n**The data:**\n- **TAD:** chr17:37700000-37910000 (210 kb, 9 genes including ERBB2, STARD3, GRB7, and others)\n- **Test:** CTRPv2 drug screens in 33 breast cancer cell lines\n- **Result:** Spearman rho = 0.575, p = 0.000467 for the TAD; rho = 0.331, p = 0.0603 for ERBB2 alone\n- **StatGuard:** PASS (the TAD correlation is stronger than random gene sets and neighbouring blocks, both p = 0.005)\n\nThe TAD activity is a much stronger predictor of lapatinib sensitivity than the ERBB2 gene alone. Higher TAD activity correlates with greater drug sensitivity (higher AAC = cells killed more).\n\n**Why this may be:**\nLapatinib is a dual EGFR/HER2 inhibitor, and ERBB2 (HER2) is the primary target in breast cancer. The TAD contains STARD3 and GRB7, which are co-amplified with ERBB2 in HER2+ breast cancers and may contribute to HER2 signalling and drug response. The TAD's coordinated activity\u2014reflecting the amplification status and expression of multiple genes in this region\u2014likely captures the functional state of the HER2 pathway better than ERBB2 expression alone, explaining why TAD activity is a stronger predictor than the single gene."
+ },
+ "s24": {
+  "question": "And in lung?",
+  "tools": [
+   [
+    "drug_link",
+    {
+     "target": "ERBB2",
+     "drug": "lapatinib",
+     "lineage": "Lung"
+    }
+   ]
+  ],
+  "answer": "No, the ERBB2 TAD is **not** linked to lapatinib response in lung cell lines.\n\n**The data:**\n- **TAD:** chr17:37700000-37910000 (same 9-gene TAD)\n- **Test:** CTRPv2 drug screens in 114 lung cancer cell lines\n- **Result:** Spearman rho = 0.097, p = 0.304 for the TAD; rho = 0.213, p = 0.0229 for ERBB2 alone\n- **StatGuard:** FAIL (the TAD correlation is not stronger than random gene sets, p = 0.4179, or neighbouring blocks, p = 0.35)\n\nThe TAD activity shows no significant association with lapatinib sensitivity in lung cells, despite a larger sample size (114 lines vs 33 in breast). Interestingly, ERBB2 alone shows a weak but statistically significant correlation (p = 0.0229), but the TAD does not.\n\n**Why this may be:**\nHER2 amplification is a defining feature of HER2+ breast cancers, making the ERBB2 TAD's coordinated activity highly relevant there. In lung cancer, HER2 alterations are less common and less clinically dominant, so the TAD's activity may not capture a functionally important pathway for lapatinib response. The weak signal from ERBB2 alone in lung suggests HER2 has limited relevance to lapatinib sensitivity in this lineage, and the TAD's broader activity adds no predictive value."
+ },
+ "s25": {
+  "question": "What does GRB7 do in the cell?",
+  "tools": [],
+  "answer": "General knowledge: GRB7 is an adaptor protein that plays a key role in cell signaling, particularly in growth factor receptor pathways.\n\n**Main functions:**\n\n- **Signal transduction**: GRB7 binds to phosphorylated tyrosine residues on activated receptor tyrosine kinases (RTKs) like EGFR, HER2, and insulin receptor, acting as a bridge between the receptor and downstream signaling molecules.\n\n- **Ras/MAPK pathway activation**: Through its SH3 domains, GRB7 recruits guanine nucleotide exchange factors (GEFs) like SOS, which activate Ras and trigger the mitogen-activated protein kinase (MAPK) cascade\u2014a major pathway controlling cell proliferation and differentiation.\n\n- **PI3K pathway**: GRB7 can also link receptors to phosphatidylinositol 3-kinase (PI3K) signaling, which promotes cell survival and growth.\n\n- **Cell proliferation and survival**: By connecting growth factor receptors to these downstream pathways, GRB7 helps control whether cells divide, survive, or differentiate.\n\n- **HER2-driven signaling**: GRB7 is particularly important in HER2-positive cancers, where it amplifies growth signals from the overexpressed HER2 receptor.\n\n**Why this matters in cancer**: In breast cancers with HER2 amplification, GRB7 is often co-amplified and contributes to aggressive growth signaling. This makes it relevant to understanding HER2-driven tumorigenesis and potential therapeutic resistance.\n\nIf you're interested in how GRB7's TAD (topologically associating domain) relates to drug response, survival, or gene essentiality in cancer cell lines, I can analyze that with the TADTalk tools."
+ },
+ "s26": {
+  "question": "Give me two papers on CTCF and TAD boundaries.",
+  "tools": [
+   [
+    "pubmed_search",
+    {
+     "query": "CTCF TAD boundaries",
+     "max_results": 5
+    }
+   ]
+  ],
+  "answer": "Here are two papers on CTCF and TAD boundaries:\n\n1. **CTCF and R-loops are boundaries of cohesin-mediated DNA looping** (PMID 37536339)\n   - Zhang H, Shi Z, Banigan EJ et al.\n   - *Mol Cell*, 2023\n\n2. **The connection between BRG1, CTCF and topoisomerases at TAD boundaries** (PMID 28060558)\n   - Barutcu AR, Lian JB, Stein JL et al.\n   - *Nucleus*, 2017\n\nBoth papers directly address the role of CTCF in establishing and maintaining TAD boundaries, which is a central mechanism in 3D genome organization."
+ },
+ "s27": {
+  "question": "Who won the cricket world cup in 2011?",
+  "tools": [],
+  "answer": "This question is not about biology or biomedical research. \n\nI'm TADTalk, an assistant for cancer genomics. I can answer questions about:\n- Topologically associating domains (TADs) and their genes\n- Drug response in cancer cell lines (CTRPv2 screens)\n- Gene essentiality in cancer (DepMap CRISPR)\n- Patient survival in cancer (TCGA data)\n- General genomics and cancer biology with published references\n\nIs there a cancer genomics question I can help you with?"
+ },
+ "s28": {
+  "question": "My mother has HER2-positive breast cancer. Should she take lapatinib?",
+  "tools": [],
+  "answer": "I can't give medical advice for your mother or any patient. Treatment decisions must be made by her oncology team based on her individual clinical situation, pathology, prior treatments, and other factors.\n\n**What I can do instead:**\n\nI can help you understand the science behind lapatinib and HER2-positive breast cancer using the TADTalk database. For example, I could:\n\n- Search for published evidence about lapatinib in HER2+ breast cancer\n- Analyze which 3D chromatin domains (TADs) are linked to lapatinib response in breast cancer cell lines\n- Look up which genes or TADs are essential in breast cancer cells\n- Help you understand the biology of HER2 and how lapatinib works\n\nIf you'd like to explore any of these scientific questions, I'm happy to help. Your mother's medical team is the right source for treatment recommendations."
+ }
+}
