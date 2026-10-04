@@ -115,3 +115,12 @@ def test_reference_check():
     text = "TADs were described in 2012 (PMID 22495300, 26700815) and later (PMID: 11111111)."
     verified, unverified = reference_check(text, [found])
     assert verified == ["22495300", "26700815"] and unverified == ["11111111"]
+
+
+def test_gene_alias():
+    from tools.common import official_symbol, resolve_target
+    assert official_symbol("her2") == "ERBB2" and official_symbol("EGFR") == "EGFR"
+    by_alias, _ = resolve_target("HER2")
+    by_symbol, _ = resolve_target("ERBB2")
+    assert by_alias["tad_id"] == by_symbol["tad_id"] and by_alias["gene"] == "ERBB2"
+    assert find_tad("HER2")["gene"] == "ERBB2"

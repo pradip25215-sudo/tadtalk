@@ -1,5 +1,5 @@
 """Tool 1: which TAD holds a gene, and which genes share it."""
-from tools.common import q, tad_of_gene
+from tools.common import official_symbol, q, tad_of_gene
 
 
 def find_tad(gene: str) -> dict:
@@ -11,11 +11,11 @@ def find_tad(gene: str) -> dict:
     around the gene with at least 3 genes, and other_tads lists the larger ones (their ids work as a target
     in the other tools).
     """
-    name = gene.strip()
+    name = official_symbol(gene)  # e.g. HER2 -> ERBB2
     tad_id = tad_of_gene(name)
     if tad_id is None:
         return {"error": f"{gene} is not in any TAD of this TAD set (a TAD needs at least 3 protein-coding genes). "
-                         "Check the gene symbol."}
+                         "Check the gene symbol and use the official one (for example ERBB2, not HER2)."}
     df = q("SELECT tad_id, tad_start, tad_end, gene FROM tad_genes WHERE tad_id = ? ORDER BY gene_start", [tad_id])
     others = q("""SELECT DISTINCT tad_id FROM tad_genes WHERE upper(gene) = upper(?) AND tad_id <> ?
                   ORDER BY tad_end - tad_start""", [name, tad_id])["tad_id"].tolist()

@@ -45,8 +45,21 @@ def tad_id_text(text):
     return t
 
 
+# Common names that people use instead of the official gene symbol.
+ALIASES = {"HER2": "ERBB2", "NEU": "ERBB2", "HER1": "EGFR", "HER3": "ERBB3", "HER4": "ERBB4", "P53": "TP53",
+           "CMYC": "MYC", "C-MYC": "MYC", "PDL1": "CD274", "PD-L1": "CD274", "PD1": "PDCD1", "PD-1": "PDCD1",
+           "P16": "CDKN2A", "P21": "CDKN1A", "RB": "RB1", "CMET": "MET", "C-MET": "MET", "BCL-2": "BCL2",
+           "CYCLIND1": "CCND1"}
+
+
+def official_symbol(name):
+    """'HER2' -> 'ERBB2'. Names that are not a known alias come back unchanged."""
+    return ALIASES.get(name.strip().upper().replace(" ", ""), name.strip())
+
+
 def tad_of_gene(gene):
     """The TAD id used for a gene: the smallest TAD around it with at least 3 genes. None if the gene has no TAD."""
+    gene = official_symbol(gene)
     if "gene_tad" in _TABLES:
         rows = q("SELECT tad_id FROM gene_tad WHERE upper(gene) = upper(?)", [gene.strip()])
     else:  # older data folder without gene_tad: every gene sits in exactly one TAD
@@ -60,7 +73,7 @@ def resolve_target(target):
     Returns (info, None) when found, or (None, {"error": ...}) when not.
     info = tad_id, genes, gene (the gene asked about, or None), size_bin.
     """
-    t = target.strip()
+    t = official_symbol(target)
     tad_id = tad_of_gene(t) or tad_id_text(t)
     rows = q("SELECT tad_id, gene FROM tad_genes WHERE upper(tad_id) = upper(?) ORDER BY gene_start", [tad_id])
     if rows.empty:
