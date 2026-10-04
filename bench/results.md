@@ -2,8 +2,8 @@
 
 | system | questions | accuracy | unsupported_numbers_per_answer | overclaims | seconds_per_answer |
 | --- | --- | --- | --- | --- | --- |
-| llm_only | 29 | 0% | 0.48 | 2 | 3.84 |
-| tadtalk | 29 | 100% | 0.31 | 5 | 7.63 |
+| llm_only | 29 | 0% | 0.48 | 1 | 3.84 |
+| tadtalk | 29 | 100% | 0.03 | 0 | 7.63 |
 
 ## Accuracy by question type (%)
 

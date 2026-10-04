@@ -23,7 +23,10 @@ def survival(target: str, cancer: str) -> dict:
     c = cancer.strip().upper()
     act = q("SELECT sample, score FROM tcga_activity WHERE cancer = ? AND set_id = ?", [c, tad["tad_id"]])
     if act.empty:
-        return {"error": f"No TCGA data for cancer '{cancer}'.", "valid_cancers": cancers()}
+        if c not in cancers():
+            return {"error": f"No TCGA data for cancer '{cancer}'.", "valid_cancers": cancers()}
+        return {"error": f"TAD {tad['tad_id']} has no activity score in TCGA-{c}: fewer than 3 of its genes are in the "
+                         "TCGA expression table (it uses some older gene names). Try another gene or TAD."}
     d = act.merge(q("SELECT sample, OS, OS_time FROM survival WHERE cancer = ?", [c]), on="sample")
     deaths = int(d["OS"].sum())
     if len(d) < 30 or deaths < 10:

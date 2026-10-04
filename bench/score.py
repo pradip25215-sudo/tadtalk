@@ -5,7 +5,9 @@ Scores (simple, transparent rules; read them before trusting the numbers):
                        drug / survival / crispr: states the main number (rho, HR or mean effect)
                        within 0.01 (HR: 0.02) AND the right StatGuard verdict (PASS / FAIL)
   unsupported_numbers  decimal numbers in the answer that match nothing in the answer key
-  overclaim            the key says FAIL but the answer says PASS or "significant"
+                       (the same value in another unit counts as a match: 0.111 = 11.1%, 3950 kb = 3.95 Mb)
+  overclaim            the key says FAIL but the answer states StatGuard PASS
+                       (answers that name no verdict: they say "significant" without a negation)
 """
 import json
 import re
@@ -16,13 +18,23 @@ from config import ROOT
 
 BENCH = ROOT / "bench"
 MAIN = {"drug": ("rho_tad", 0.01), "survival": ("hr_per_sd", 0.02), "crispr": ("tad_mean_effect", 0.01)}
-ALLOWED = [0.05, 0.5, -0.5]  # thresholds of the method itself
+ALLOWED = [0.05, 0.5, -0.5, 1.0]  # thresholds of the method itself, and HR = 1.0 (no effect)
 NUMBER = re.compile(r"-?\d+\.\d+(?:e-?\d+)?|-?\d+e-?\d+")
 
 
+SUPERSCRIPT = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
+
+
 def numbers(text):
-    """Decimal numbers in a text, e.g. 0.77, -1.2, 3.6e-12."""
-    return [float(x) for x in NUMBER.findall(text.lower().replace("−", "-"))]
+    """Decimal numbers in a text, e.g. 0.77, -1.2, 3.6e-12. Also reads "2.04 × 10⁻¹³" and "2.04 x 10^-13"."""
+    t = text.lower().replace("−", "-").translate(SUPERSCRIPT)
+    t = re.sub(r"(\d+(?:\.\d+)?)\s*[×x]\s*10\s*\^?\s*(-?\d+)", r"\1e\2", t)
+    return [float(x) for x in NUMBER.findall(t)]
+
+
+def stated_verdicts(text):
+    """The StatGuard verdicts an answer states, e.g. {"fail"} for "StatGuard verdict: FAIL"."""
+    return set(re.findall(r"statguard\W{0,4}(?:verdict|check|result)?\W{0,6}(pass|fail)\b", text.lower()))
 
 
 def flatten(x):
@@ -45,11 +57,19 @@ def score_one(q, answer, key):
         correct, overclaim = len(found) / len(key["genes"]) >= 0.8, False
     else:
         field, tol = MAIN[q.type]
-        correct = (any(abs(n - key[field]) <= tol for n in numbers(answer))
-                   and re.search(rf"\b{key['verdict'].lower()}\b", text) is not None)
-        claims = re.search(r"\bpass\b", text) or re.search(r"(?<!not )(?<!no )(?<!non-)\bsignificant", text)
-        overclaim = key["verdict"] == "FAIL" and claims is not None
-    reference = flatten(key) + numbers(q.question) + ALLOWED
+        stated = stated_verdicts(answer)
+        verdict = key["verdict"].lower()
+        right_verdict = verdict in stated if stated else re.search(rf"\b{verdict}\b", text) is not None
+        correct = any(abs(n - key[field]) <= tol for n in numbers(answer)) and right_verdict
+        if stated:  # the answer names a StatGuard verdict: an overclaim is saying PASS when the key says FAIL
+            claims = "pass" in stated
+        else:       # no verdict named (the no-tools baseline): "significant" with no negation just before it
+            claims = any(not re.search(r"\b(not|no|non|never|without|lack)\b|n't", text[max(0, m.start() - 30):m.start()])
+                         for m in re.finditer(r"\bsignificant", text))
+        overclaim = key["verdict"] == "FAIL" and claims
+    values = flatten(key)
+    same_value_other_unit = [v * 100 for v in values if 0 <= v <= 1] + [v / 1000 for v in values]  # share -> %, kb -> Mb
+    reference = values + same_value_other_unit + numbers(q.question) + ALLOWED
     unsupported = sum(not any(abs(n - b) <= max(0.005, 0.05 * abs(b)) for b in reference) for n in numbers(answer))
     return correct, unsupported, overclaim
 
