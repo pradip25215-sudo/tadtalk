@@ -1,0 +1,10 @@
+# The look of the TADTalk web app (Streamlit reads this file when started from the project folder).
+[theme]
+base = "light"
+primaryColor = "#C81D4E"
+backgroundColor = "#F7F8FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F1F3D"
+
+[browser]
+gatherUsageStats = false
